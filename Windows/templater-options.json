@@ -1,0 +1,47 @@
+{
+    "log_location"          : "C:\\path\\to\\the\\folder\\for\\your\\logs",
+    "data_source"           : "http://url.to.google/sheet or C:\\path\\to\\tabbed\\delimited\\file",
+    "aep"                   : "C:\\path\\to\\aep\\for\\versioning.aep",
+    "source_footage"        : "C:\\path\\to\\folder\\containing\\referenced\\footage",
+    "output_location"       : "C:\\path\\to\\where\\templater\\should\\write\\output",
+    "render_settings"       : "Draft Settings",
+    "output_module"         : "AVI DV NTSC 48kHz",
+    "output_prefix"         : "cli_test",
+    "row_start"             : 2,
+    "row_end"               : 9,
+    "prefs"                 : {
+                                "clear_prev_cache"        : false,
+                                "default_target"          : "name-of-comp-to-render",
+                                "tsv_from_excel"          : true,
+                                "replica_comps_to_queue"  : true,
+                                "replica_comps_to_ame"    : false,
+                                "remove_replicas_ame"     : false,
+                                "fix_layer_exp"           : false,
+                                "missing_footage"         : 3,
+                                "placeholder_visual"      : "C:\\path\\to\\a\\branded\\placeholder\\file.png",
+                                "placeholder_audio"       : "C:\\path\\to\\a\\default\\audio\\file.wav",
+                                "unique_downloads"        : false,
+                                "bot" : {
+                                            "name"             : "",
+                                            "goog_freq"        : 5,
+                                            "post_cmd_job"     : "",
+                                            "post_cmd_batch"   : "",
+                                            "shutdown_cmd"     : "",
+                                            "max_queued"       : 20,
+                                            "job_detail_args"  : false,
+                                            "action_render"    : true,
+                                            "action_replicate" : false
+                                        }
+                              },
+    "tasks"                 : {
+                                "render"         : true,
+                                "replicate"      : false,
+                                "activate"       : false,
+                                "bot_enable"     : false,
+                                "bot_disable"    : false,
+                                "bot_deactivate" : false,
+                                "bot_activate"   : false
+                              },
+    "save_on_completion"    : false,
+    "quit_on_completion"    : true
+}
