@@ -7,8 +7,6 @@ on run argv
 	
 	set scriptFile to (current_path & tmpl)
 	
-	display dialog scriptFile
-	
 	tell application "Adobe After Effects CS5.5"
 		activate
 		using terms from application "Adobe After Effects CS5.5"
