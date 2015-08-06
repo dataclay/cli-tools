@@ -1,10 +1,10 @@
-# Command Line Interface Tools for Templater 2
-Templater 2 ships with command line interface (CLI) control only if Bot functionality is available.  These files will help you get started using the CLI.  Invoking the CLI is a bit different on OSX than on Windows, so we've divided up the files between the two operating systems.
+# Command Line Interface Tools for Templater Pro + Bot
+Templater ships with command line interface (CLI) control only if Bot functionality is available.  These files will help you get started using the CLI.  Invoking the CLI is a bit different on OSX than on Windows, so we've divided up the files between the two operating systems.
 
 ###Requirements for running Templater via the CLI
 To successfully version an After Effects project ("AEP") file with Templater's command line interface, you should first have some resources contained in a single directory.
 
-*	A working AEP file compatible with Templater 2
+*	A working AEP file compatible with Templater
 *	A valid data source containing versioning information for the AEP file
 *	A `templater-options.json` file that specifies Templater's configuration and options in JSON format
 *	A copy of the `Templater 2.jsxbin` file that was installed into After Effects' ScriptUI application folder
