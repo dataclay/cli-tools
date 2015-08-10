@@ -1,1 +1,1 @@
-"C:\Program Files\Adobe\Adobe After Effects CC\Support Files\AfterFX.exe" -noui -r "%CD%\Templater 2.jsxbin"
+"C:\Program Files\Adobe\Adobe After Effects CC\Support Files\afterfx" -noui -r "%CD%\Templater 2.jsxbin"

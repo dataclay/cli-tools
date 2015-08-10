@@ -13,7 +13,7 @@ To successfully version an After Effects project ("AEP") file with Templater's c
 
 Once you have these correctly setup with a single directory, you can begin to use Templater's CLI and successfully troubleshoot problems you encounter with it.
 
-After using the CLI for a while, a typical folder on Windows might look something like:
+A typical project folder on Windows might look something like this:
 
 ```
 \Weather Forecast
@@ -32,7 +32,7 @@ After using the CLI for a while, a typical folder on Windows might look somethin
   	templater-options.json
 ```
 
-And a typical folder on OSX might look something like:
+And a typical project folder on OSX might look something like this:
 
 	/Weather Forecast
 		aeCC2015.applescript
