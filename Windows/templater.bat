@@ -38,8 +38,4 @@ if not defined or_ (
 copy /Y "%APP_DIR%\%PANELS%\Templater 2.jsxbin" "%CD%\Templater 2.jsxbin"
 
 ::Run After Effects along with the Templater 2 file
-if %USE_UI%=="-noui" (
-    "%APP_DIR%\afterfx" -r -noui "%CD%\Templater 2.jsxbin"
-) else (
-    "%APP_DIR%\afterfx" -r "%CD%\Templater 2.jsxbin"
-)
+"%APP_DIR%\afterfx" -r %USE_UI% "%CD%\Templater 2.jsxbin"
