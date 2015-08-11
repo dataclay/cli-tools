@@ -7,7 +7,7 @@ To successfully version an After Effects project ("AEP") file with Templater's c
 *	A working AEP file compatible with Templater
 *	A valid data source containing versioning information for the AEP file
 *	A `templater-options.json` file that specifies Templater's configuration and options in JSON format
-*	A copy of the `Templater 2.jsxbin` file that was installed into After Effects' ScriptUI application folder
+*	A copy of the `Templater 2.jsxbin` file that was installed into After Effects' ScriptUI application folder.  This file is copied to your project automatically when using the supplied batch script.
 *	A script file, provided by Dataclay, that launches Adobe After Effects and makes use of `Templater 2.jsxbin`
 *	A *directory location* for Templater logging
 
@@ -96,13 +96,13 @@ Follow these steps to invoke Templater's CLI with After Effects CC 2015 on OSX:
 4. Wait for Templater to complete it versioning tasks as specified within the `tasks` key of the `templater-options.json` file.  If you get unexpected results, consult the `templater.log` file to see any messages Templater logged.
 
 ###On Microsoft Windows
-Invoking Templater via the command line on Windows involves the use of a provided Microsoft Batch file.  On Windows you can choose to launch After Effects with or without a graphical user interface ("gui").  Use one of the provided Batch files to launch the specific version of After Effects you want to use with Templater.  For example, if you want to launch Adobe After Effects CC 2014 without a gui then use `templater-noui-CC2014.bat`, but if you want to launch Adobe After Effects CC 2015 *with* a gui then use `templater-CC2015.bat`.  
+Invoking Templater via the command line on Windows involves the use of a provided Microsoft Batch file.  On Windows you can choose to launch After Effects with or without a graphical user interface ("gui").  You pass a command line parameter to the batch file to launch a specific version of After Effects you want to use with Templater.  For example, if you want to launch Adobe After Effects CC 2014 without a gui then use `templater "CC 2014"`, but if you want to launch Adobe After Effects CC 2015 *with* a gui then use `templater "CC2015" ui`.  If no command line arguments are passed to the batch file, then batch file will print out its usage statement.  
 
 Follow these steps to invoke Templater's CLI with After Effects CC 2015 on Windows:
 
 1. Start a command prompt
-2. Navigate to a directory that contains a Templater-compatible AEP file, a configured `templater-options.json` file, the `Templater 2.jsxbin` file, and the `templater-noui-CC2015.bat` file.
-3. Type `templater-noui-CCC205.bat` and press Enter to have have Templater interpret the configuration in the `templater-options.json` file and launch After Effects CC 2015.
+2. Navigate to a directory that contains a Templater-compatible AEP file, a configured `templater-options.json`  and the `template.bat` file.
+3. Type `templater "CC 2015"` and press Enter to have have Templater interpret the configuration in the `templater-options.json` file and launch After Effects CC 2015.  A copy of `Templater 2.jsxbin` is added to your project directory.
 4. Wait for Templater to complete versioning and tasks as specified within options' file `tasks` key.  If you get unexpected results, consult the `templater.log` file to see any messages Templater logged.
 
 #Troubleshooting the Templater CLI
