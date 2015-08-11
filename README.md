@@ -27,7 +27,7 @@ A typical project folder on Windows might look something like this:
   		video3.avi
   		. . .
   		video200.avi
-  	Templater.bat
+  	templater.bat
   	Templater 2.jsxbin
   	templater-options.json
 ```
@@ -35,7 +35,7 @@ A typical project folder on Windows might look something like this:
 And a typical project folder on OSX might look something like this:
 
 	/Weather Forecast
-		aeCC2015.applescript
+		templater-CC2015.applescript
 	  	FiveDay.aep
 	  	/logs
 	  		templater.out
