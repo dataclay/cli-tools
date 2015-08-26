@@ -10,7 +10,6 @@
     "row_start"             : 2,
     "row_end"               : 9,
     "prefs"                 : {
-                                "clear_prev_cache"        : false,
                                 "default_target"          : "name-of-comp-to-render",
                                 "tsv_from_excel"          : true,
                                 "replica_comps_to_queue"  : true,
@@ -36,9 +35,7 @@
     "tasks"                 : {
                                 "render"         : true,
                                 "replicate"      : false,
-                                "activate"       : false,
                                 "bot_enable"     : false,
-                                "bot_disable"    : false,
                                 "bot_deactivate" : false,
                                 "bot_activate"   : false
                               },
