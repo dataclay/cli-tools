@@ -80,11 +80,11 @@ Some of the more important keys for running the CLI are the following:
 ###On Apple OSX
 Invoking Templater via the command line on OSX involves the use of the `osascript` command which is the AppleScript interpreter for OSX.  Use one of the provided AppleScript files to launch the specific version of After Effects you want to use with Templater's CLI.  For example, if you want to launch Adobe After Effects CC 2014 with the CLI then choose `templater-CC2014.applescript`, but if you want to launch Adobe After Effects CC 2015 choose `templater-CC2015.applescript`.
 
-The following is the general format for invoking Templater's CLI *from within a project directory* as outlined above. 
+The following is the general format for invoking Templater's CLI *from within a project directory* as outlined above.
 
-`osascript {AppleScript launch file} `
+`osascript {AppleScript launch file}  {ui}`
 
-In practice, the actual command line would look like this if we wanted to launch AE CC2015
+In practice, the actual command line would look like this if we wanted to launch AE CC2015 without a user interface.
 
 `osascript templater-CC2015.applescript`
 
@@ -92,7 +92,7 @@ Follow these steps to invoke Templater's CLI with After Effects CC 2015 on OSX:
 
 1. Launch a Terminal session
 2. Navigate to a directory that contains a Templater-compatible AEP file, a configured `templater-options.json` file, and the `templater-CC2015.applescript` file.
-3. Type in `osascript templater-CC2015.applescript` and press Enter to have Templater interpret the configuration in the `templater-options.json` file and launch After Effects CC 2015.
+3. Type in `osascript templater-CC2015.applescript` and press Enter to have Templater interpret the configuration in the `templater-options.json` file and launch After Effects CC 2015 without a user interface.  Type in `osascript templater-CC2015.applescript ui` to do the same but launch After Effects with a user interface.
 4. Wait for Templater to complete it versioning tasks as specified within the `tasks` key of the `templater-options.json` file.  If you get unexpected results, consult the `templater.log` file to see any messages Templater logged.
 
 ###On Microsoft Windows
@@ -102,7 +102,7 @@ Follow these steps to invoke Templater's CLI with After Effects CC 2015 on Windo
 
 1. Start a command prompt
 2. Navigate to a directory that contains a Templater-compatible AEP file, a configured `templater-options.json`  and the `template.bat` file.
-3. Type `templater "CC 2015"` and press Enter to have have Templater interpret the configuration in the `templater-options.json` file and launch After Effects CC 2015.  A copy of `Templater 2.jsxbin` is added to your project directory.
+3. Type `templater "CC 2015"` and press Enter to have have Templater interpret the configuration in the `templater-options.json` file and launch After Effects CC 2015.  A copy of `Templater 2.jsxbin` is added to your project directory.  Type `templater "CC 2015" ui` to do the same but launch After Effects with a user interface.
 4. Wait for Templater to complete versioning and tasks as specified within options' file `tasks` key.  If you get unexpected results, consult the `templater.log` file to see any messages Templater logged.
 
 #Troubleshooting the Templater CLI

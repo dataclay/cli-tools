@@ -3,6 +3,12 @@ on run argv
     set tmpl to "Templater 2.jsxbin"
     set panels to "/Applications/Adobe After Effects CS6/Scripts/ScriptUI Panels/"
 
+    try
+        set ui to (item 1 of argv)
+    on error
+        set ui to false
+    end try
+
     tell application "Finder"
         set current_path to POSIX path of (container of (path to me) as string)
     end tell
@@ -10,6 +16,10 @@ on run argv
     do shell script "cp -f '" & panels & tmpl & "' '" & current_path & tmpl & "'"
     
     set scriptFile to (current_path & tmpl)
+
+    if ui is not equal to "ui" then
+        do shell script "open -a 'Adobe After Effects CS6' --args -noui"
+    end if
     
     tell application "Adobe After Effects CS6"
         activate
