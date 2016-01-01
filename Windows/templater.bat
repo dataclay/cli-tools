@@ -3,6 +3,7 @@
 ::Get command line parameters
 if "%~1"=="" (set APP_VER="null") else (set APP_VER=%1)
 if "%~2"=="" (set USE_UI="-noui") else (set USE_UI=" ")
+if "%~3"=="" (set MULTI=" ") else (set MULTI="-m")
 
 ::After Effects Application Directories
 SET APP_DIR=C:\Program Files\Adobe\Adobe After Effects %~1\Support Files
@@ -19,10 +20,14 @@ if %APP_VER%=="CS5" set or_=true
 if not defined or_ (
     echo.
     echo Usage:
-    echo    templater version [ui]
+    echo    templater [version] [ui] [-m]
     echo.
     echo Version options:
     echo     'CC 2015' 'CC 2014' 'CC' 'CS6 'CS5.5' CS5'
+    echo.
+    echo Include option '-m' to launch After Effects as a new, separate,
+    echo process. This is useful if you want to simultaneously execute two
+    echo or more versioning and rendering jobs with Templater's CLI.
     echo.
     echo Include option 'ui' to launch with a GUI
     echo.
@@ -38,4 +43,4 @@ if not defined or_ (
 copy /Y "%APP_DIR%\%PANELS%\Templater 2.jsxbin" "%CD%\Templater 2.jsxbin"
 
 ::Run After Effects along with the Templater 2 file
-"%APP_DIR%\afterfx" -r %USE_UI% "%CD%\Templater 2.jsxbin"
+"%APP_DIR%\afterfx" -r %MULTI% %USE_UI% "%CD%\Templater 2.jsxbin"
