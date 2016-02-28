@@ -1,5 +1,5 @@
 @echo off
-setlocal ENABLEDELAYEDEXPANSION
+setlocal enabledelayedexpansion
 
 ::Get command line parameters
 if "%~1"=="" (set APP_VER="null") else (set APP_VER=%1)
@@ -24,7 +24,7 @@ if not defined or_ (
     echo    templater [version] [ui] [-m]
     echo.
     echo Version options:
-    echo     'CC 2015' 'CC 2014' 'CC' 'CS6 'CS5.5' CS5'
+    echo     "CC 2015" "CC 2014" "CC" "CS6" "CS5.5" "CS5"
     echo.
     echo Include option '-m' to launch After Effects as a new, separate,
     echo process. This is useful if you want to simultaneously execute two
@@ -56,9 +56,11 @@ if not exist "%CD%\templater-options.json" (
 for /f "tokens=1,2,*" %%a in (' find ":" ^< "templater-options.json" ') do (
   if %%a=="log_location": (
     set log_loc=%%~b%%~c
-    call:GetLogLoc log_path "%log_loc%"
+    break
   )
 )
+
+call:GetLogLoc log_path "%log_loc%"
 
 echo.
 echo - - - - - - - - - - - - - -
@@ -68,13 +70,13 @@ echo.
 echo Configuration loaded from =^>
 echo %CD%\templater-options.json
 echo.
-echo log_location : %log_path%
+echo Messages and Errors are logged in files in =^>
+echo %log_path%
 echo.
 echo.
-
-echo Now launching Adobe After Effects
 
 ::For safe measure, copy the installed jsxbin to the current folder
+echo Now launching Adobe After Effects
 copy /Y "%APP_DIR%\%PANELS%\Templater 2.jsxbin" "%CD%\Templater 2.jsxbin"
 
 ::Run After Effects along with the Templater 2 file
@@ -84,7 +86,8 @@ echo.
 echo.
 echo Done with After Effects processing.  See log files below for more information =^>
 echo.
-dir "%log_path%"
+echo     %log_path%\templater.log
+echo     %log_path%\templater.err
 
 if exist "%log_path%\templater.log" (
    for /F "delims=" %%a in (%log_path%\templater.log) do (
@@ -96,8 +99,6 @@ if exist "%log_path%\templater.log" (
  echo LAST LOGGED MESSAGE =^>
  echo.
  echo !previous!
- echo.
- echo.
 )
 
 if exist "%log_path%\templater.err" (
@@ -105,6 +106,8 @@ if exist "%log_path%\templater.err" (
      set "previous=!last!"
      set "last=%%a"
    )
+ echo.
+ echo.
  echo LAST REPORTED ERROR =^>
  echo.
  echo !previous!
@@ -116,7 +119,3 @@ if exist "%log_path%\templater.err" (
  set #=%~2
  set log_path=%#:\\=\%
 GOTO :EOF
-
-
-echo.
-echo.
