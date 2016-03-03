@@ -1,110 +1,182 @@
-# Command Line Interface Tools for Templater Pro + Bot
-Templater ships with command line interface (CLI) control only if Bot functionality is available.  These files will help you get started using the CLI.  Invoking the CLI is a bit different on OSX than on Windows, so we've divided up the files between the two operating systems.
+# Command Line Interface Tools for Templater Bot
+Templater ships with command line interface (CLI) control only if Bot functionality is available.  The files contained in this repository help get started using Templater's CLI.
 
-###Requirements for running Templater via the CLI
-To successfully version an After Effects project ("AEP") file with Templater's command line interface, you should first have some resources contained in a single directory.
+<a id="requirements"></a>
+## Requirements for running the Templater CLI
 
-*	A working AEP file compatible with Templater
-*	A valid data source containing versioning information for the AEP file
-*	A `templater-options.json` file that specifies Templater's configuration and options in JSON format
-*	A copy of the `Templater 2.jsxbin` file that was installed into After Effects' ScriptUI application folder.  This file is automatically copied to your project folder when you use the supplied batch script or AppleScript launch file.
-*	A script file, provided by Dataclay, that launches Adobe After Effects.  These are found in this repository.
-*	A *directory location* for Templater logging
+#### System Requirements
+Prior to Templater 2.1.8, the launcher script was written as a Microsoft Batch script for Windows, and an AppleScript file for OSX.  These have been deprecated and are no longer supported by Dataclay.  As of Templater version 2.1.8 users should invoke the Templater CLI via the `templater.ps1` file on Windows and `templater.sh` file on OSX.  
 
-Once you have these correctly setup with a single directory, you can begin to use Templater's CLI and successfully troubleshoot problems you encounter with it.
+>###### Windows Environment
+> + Windows PowerShell must be available to the current user in order to invoke Templater via the command line.
+> + Users should have privileges to run PowerShell scripts from the PowerShell prompt.
 
-A typical project folder on Windows might look something like this:
+>##### OSX Environments
+>+ Python—version 2.6 or later—must be available in user's environment in order to invoke Templater via the command line.  All recent versions of OSX already come bundled with Python.  Enter `python --version` at a new terminal prompt to verify installation—if  you get a version number, Python is installed and ready.
+
+#### Project Requirements
+To version an After Effects project with Templater's command line interface, you should first have some required resources within your project's working directory, as follows:
+
+*	Your Adobe After Effects project file that is already compatible with Templater.  In addition, the project file should open within After Effects without throwing up any error dialogs related to dependencies such as fonts, missing files, etc.
+*	A [`templater-options.json`](https://github.com/dataclay/cli-tools/blob/master/Windows/templater-options.json) file that specifies Templater's configuration and options in JSON format
+*	The CLI launcher script—either [`templater.ps1`](https://github.com/dataclay/cli-tools/tree/master/Windows/templater.ps1) for Windows Powershell or [`templater.sh`](https://github.com/dataclay/cli-tools/tree/master/Windows/templater.sh) provided for OSX Terminal.
+
+On Windows, for example, a directory listing of a weather forecast project should include the following files at a bare minimum:
 
 ```
-\Weather Forecast
+C:\Templates\WeatherForecast
 	FiveDay.aep
-	\logs
-  		templater.out
-  		templater.log
-  	\output
-  		video1.avi
-  		video2.avi
-  		video3.avi
-  		. . .
-  		video200.avi
-  	templater.bat
-  	Templater 2.jsxbin
-  	templater-options.json
+	templater-options.json
+  	templater.ps1
+```
+On OSX, the same weather forecast project directory listing should show:
+
+```
+~/Templates/WeatherForecast
+    FiveDay.aep
+    templater-options.json
+    templater.sh
+```
+Once you have these files setup and within a single directory, you can use Templater's CLI to version your AEP file on demand and successfully troubleshoot problems you encounter with it.
+
+## Configuring the Templater CLI
+You configure the Templater CLI by editing the JSON-formatted [`templater-options.json`](https://github.com/dataclay/cli-tools/blob/master/Windows/templater-options.json) file.  If you forget to declare a required key, or a key has an invalid value, Templater will report an error in your logs.  Some keys will have default values if they are not specified in the file.
+
+Note that on Windows, paths specified within the configuration file must be entered with a double-backslash like
+	
+	C:\\Templates\\Styles\\Modern\\WeatherForecast.aep
+
+While paths on OSX must be entered with the forward slash like 
+	
+	/Users/dataclay/Templates/Styles/Modern/WeatherForecast.aep
+
+You should [read documentation on Dataclay's support website](http://support.dataclay.com/content/how_to/cli/templater_cli_configuration_properties.htm) for detailed documentation on each property key, but here are some important keys for running the CLI:
+
+##### **`log_location`**  :  *string*
+>Specifies **a path to a directory** for multiple message and error log files.  Read `templater.out` when you want to inspect the log as Templater executes—for example with a command like `tail -f templater.out`.  Open `templater.log` if you need to examine the log using a standard text editor.
+
+</br>
+##### **``tasks``** : object
+>An object with properties that specify what you want Templater to actually do.  The values for the keys in this group should only be `true` or `false`.  For example, if you want Templater to *only* Render, then set the `render` key to `true` and the others to `false`.
+
+</br>
+##### **``prefs``** : object
+>A group of keys that configure Templater's preferences.  For the most part, all of these keys are self-explanatory, but please reference our documentation for more information.
+
+</br>
+##### **``data_source``** : string
+>Specifies an absolute path to a tabbed-delimited file, or a URL to a Google Sheet feed.  You can get the URL feed of a Google Sheet from the `Google Spreadsheet Setup` dialog launched by clicking the `Google` button found on the Templater panel within After Effects.
+
+</br>
+##### **``aep``** : string
+>Specifies an absolute path to the project file that is to be versioned using the specified with the `data_source`.
+
+</br>
+##### **``row_start``** & **``row_end``**  : integer
+>Specifies the start row and end rows in the data source to begin versioning processes.
+
+</br>
+##### **``output_location``** : string
+>Specifies an absolute path to where Templater should output all renders that come out of the After Effects render queue.
+
+</br>
+##### **``render_settings``** & **``output_module``** : string
+>Specifies the Render Settings Template and Output Module Template used when Templater loads versioned compositions into the After Effects render queue.  The values for these keys are strings that should match the names as found in After Effects' *Render Setting Templates* and *Output Module Templates* dialog.
+
+</br>
+##### **``save_on_completion``** : boolean
+>Specifies whether or not Templater should save the versioned project file after running its tasks.
+
+</br>
+##### **``quit_on_completion``** : boolean
+>Specifies whether or not Templater should quit after running its tasks.
+	  	
+
+## Running the Templater CLI
+
+Start Templater from the command line by entering the name of the launcher script file followed by some arguments.  If you don't supply the required arguments, the launcher script will output its usage, documentation, and examples.
+
+Assuming your file system has a directory named `WeatherForecast` containing the required files as listed in [Requirements for running the Templater CLI](#requirements), and that the environment is running Adobe After Effects CC 2015, you would follow these steps to invoke Templater from the command line:
+
+1. On Windows, start a new Powershell terminal.  On OSX, start a new terminal session.
+2. Change into the `WeatherForecast` directory.  On Windows, use `cd C:\Templater\WeatherForecast` on OSX, use `cd ~/Templates/WeatherForecast` 
+3. On Windows, at the Powershell prompt `>`, enter the following
+
+	>```
+	>PS C:\Templates\WeatherForecast> .\templater.ps1 -v 'CC 2015'
+	>```
+	
+	On OSX, at the Terminal prompt `$`, enter the following
+	
+	>```
+	>iMac:WeatherForecast dataclay$ templater.sh -v 'CC 2015' 
+	>```
+
+
+
+ ###### </br>NOTE
+If the launcher file does not execute you may need to set its permissions.  On OSX, you can use `sudo chmod u+x templater.sh` to ensure `templater.sh` is executable for the current user.  On Windows, use the "Security" tab in the `File Properties` dialog to change the permissions of `templater.ps1` for the current user. 
+4. Wait for Templater to configure according to the `templater-options.json` file and complete its versioning tasks with After Effects.
+5. After processing is complete, the launcher script displays the last message logged to `templater.log`, as well as the last reported error as found in `templater.err`.
+6. Begin troubleshooting if desired output is not found.  You should check the `templater-options.json` to double-check your configuration, and then inspect the `templater.log` and `templater.err` files to learn more about any issues Templater reports.
+
+#### Templater Launcher Tool Help
+Use `.\templater.ps1 -h` or `./templater.sh -h` to see information about options and arguments.  The following shows the help as it shows in Windows PowerShell 
+>```
+>	Templater Launcher from Dataclay
+>
+>	Desc:>>      Launches Templater for Adobe After Effects>      from the command line.  A supported version of>      After Effects is required to be installed on this>      machine for this launcher to work properly.>>   Usage:>>      .\templater.ps1 [-h] -v 'ae_version_string' [-ui] [-m]>>   Options:>>      -h>      Shows this documentation>>      -v | --version 'ae_version_string'>      The version of AE you want to use with Templater,>      where 'version_string' can be any of the following:>      'CC 2015' 'CC 2014' 'CC' 'CS6' 'CS5.5' 'CS5'.>>      -ui>      When used, Adobe After Effects launches with a user interface>>      -m>      If included, this causes AE to launch as a new, seperate,>      process.  This is useful if you want to simultaneously>      execute two or more versioning jobs with Templater.>>    Examples:>>        Launch without AE user interface>>          > .\templater.ps1 -v 'CC 2015'>          > .\templater.ps1 -v 'CS5'>>        Launch with AE user interface>>          > .\templater.ps1 -v 'CC 2005' -ui>          > .\templater.ps1 -v 'CS5' -ui>>        Launch new instance of AE without its user interface>>          > .\templater.ps1 -v 'CC 2015' -m
+>          
 ```
 
-And a typical project folder on OSX might look something like this:
+## Troubleshooting the Templater CLI
+The PowerShell and Bash script launchers report the last logged message and the last reported error after Templater completes execution.  Use these logs to help you troubleshoot the Templater CLI.  Messages are logged to `templater.log` while errors are logged to `templater.err`.  Errors are logged as single-line JSON objects.  The error object contains useful information that can be processed by other applications.
 
-	/Weather Forecast
-		templater-CC2015.applescript
-	  	FiveDay.aep
-	  	/logs
-	  		templater.out
-	  		templater.log
-	  	/output
-	  		video1.mov
-	  		video2.mov
-	  		video3.mov
-	  		. . .
-	  		video200.mov
-	  	Templater 2.jsxbin
-	  	templater-options.json
-	  	
-#Configuring the Templater CLI
-You configure the Templater CLI using the `templater-options.json` file.  This is a simple, JSON-formatted, text file that allows you to set specific options for Templater.  If you forget to specify a required key, or a key has an invalid value, Templater will report an error in your logs.  However, some of the keys will have default values if they are not specified.
+The following is an example of an error object that is output to `templater.err` when After Effects attempts to import a footage source file that is corrupt or not supported. 
 
-Some of the more important keys for running the CLI are the following:
+```
+{ 
+    code     : 1001
+  , desc     : "Error swapping footage source"
+  , ae       : "Error: After Effects error: the file format module could not parse the file."
+  , details  : "AE encountered an footage import issue with file B:\Dataclay\Sources\[TEMPLATER DOWNLOADS]\11137842_1428056637497122_561536778_n.jpg.  Try manually importing this file into AE to learn more."
+  , reported : "2016-3-2 @ 14:50:46"
+}
+```
 
-+ **log_location** [String] Specifies a path to a directory that Templater uses to output the `templater.out` and the `templater.log` files.  Do not use a path to a file for this key.  If you have an application that can examine a text buffer then use `templater.out`, but if you need to examine the logs using a standard text editor, use the `templater.log` file.  For example, if you could use the `tail -f templater.out` command on OSX to see what Templater is logging in real-time.
+#### Definitions of properties in Templater error objects
+##### **`code`**
+>A numerical identifier for the reported error.  You can use the error code in the `quit_on_errors` array as defined in [`templater-options.json`](https://github.com/dataclay/cli-tools/blob/master/Windows/templater-options.json) file to force quit after effects on the first occurrence of that error code.
 
-+ **tasks** [Boolean] A group of keys that specify what you want Templater to actually do.  The values for the keys in this group should only be `true` or `false`.  For example, if you want Templater to *only* Render, then set the `render` key to `true` and the others to `false`.
+> ###### Error Code Descriptions
+>| error code |              description              |
+|----------:|:-------------------------------------|
+| 1          | Error starting Temlpater application |
+| 2          | Error initializing Templater CLI |
+| 1001    | Error swapping footage source                                       |
+| 1002    | Error downloading remote footage source                                       |
+| 1003    | Could not find the footage file in network |
+| 2001    | Command line execution error                                      |
+| 2002       | CLI configuration file error                                       |
+| 3001       | Error conforming row data                                       |
+| 4001       | Google Open Authentication (OAuth) Error                                       |
+| 4002       | Google Drive retrieval error                                       |
+| 5001       | Templater layout engine error                                       |
+| 6001       | HTTP request error                                        |
 
-+ **prefs** [Mixed] A group of keys that configure Templater's preferences.  For the most part, all of these keys are self-explanatory, but please reference our documentation for more information.
+</br>
+##### **``desc``**
+>A short description of the reported error code
 
-+ **data_source** [String] Specifies an absolute path to a tabbed-delimited file, or a URL to a Google Sheet feed.  You can get the URL feed of a Google Sheet from the `Google Spreadsheet Setup` dialog launched by clicking the `Google` button found on the Templater panel within After Effects.
+</br>
+##### **``ae``**
+>The message of the error thrown by After Effects if any
 
-+ **aep** [String] Specifies an absolute path to the project file that is to be versioned using the specified with the `data_source`.
+</br>
+##### **``details``**
+>Additional messaging for the specific error and also offers suggestions to fix the problem
 
-+ **row_start** & **row_end**  [Integer] Specifies the start row and end rows in the data source to begin versioning processes.
+</br>
+##### **``reported``**
+>A time stamp showing the date and time the error was reported
 
-+ **output_location** [String] Specifies an absolute path to where Templater should output all renders that come out of the After Effects render queue.
-
-+ **render_settings** & **output_module** [String] Specifies the Render Settings Template and Output Module Template used when Templater loads versioned compositions into the After Effects render queue.  The values for these keys are strings that should match the names as found in After Effects' `Render Setting Templates` and `Output Module Templates` dialog.
-
-+ **save_on_completion** [Boolean] Specifies whether or not Templater should save the versioned project file after running its tasks.
-
-+  **quit_on_completion** [Boolean] Specifies whether or not Templater should quit after running its tasks.
-	  	
-
-#Running the Templater CLI
-
-###On Apple OSX
-Invoking Templater via the command line on OSX involves the use of the `osascript` command which is the AppleScript interpreter for OSX.  Use one of the provided AppleScript files to launch the specific version of After Effects you want to use with Templater's CLI.  For example, if you want to launch Adobe After Effects CC 2014 with the CLI then choose `templater-CC2014.applescript`, but if you want to launch Adobe After Effects CC 2015 choose `templater-CC2015.applescript`.
-
-The following is the general format for invoking Templater's CLI *from within a project directory* as outlined above.
-
-`osascript {AppleScript launch file}  {ui}`
-
-In practice, the actual command line would look like this if we wanted to launch AE CC2015 without a user interface.
-
-`osascript templater-CC2015.applescript`
-
-Follow these steps to invoke Templater's CLI with After Effects CC 2015 on OSX:
-
-1. Launch a Terminal session
-2. Navigate to a directory that contains a Templater-compatible AEP file, a configured `templater-options.json` file, and the `templater-CC2015.applescript` file.
-3. Type in `osascript templater-CC2015.applescript` and press Enter to have Templater interpret the configuration in the `templater-options.json` file and launch After Effects CC 2015 without a user interface.  Type in `osascript templater-CC2015.applescript ui` to do the same but launch After Effects with a user interface.
-4. Wait for Templater to complete it versioning tasks as specified within the `tasks` key of the `templater-options.json` file.  If you get unexpected results, consult the `templater.log` file to see any messages Templater logged.
-
-###On Microsoft Windows
-Invoking Templater via the command line on Windows involves the use of a provided Microsoft Batch file.  On Windows you can choose to launch After Effects with or without a graphical user interface ("gui").  You pass a command line parameter to the batch file to launch a specific version of After Effects you want to use with Templater.  For example, if you want to launch Adobe After Effects CC 2014 without a gui then use `templater "CC 2014"`, but if you want to launch Adobe After Effects CC 2015 *with* a gui then use `templater "CC2015" ui`.  If no command line arguments are passed to the batch file, then batch file will print out its usage statement.  
-
-Follow these steps to invoke Templater's CLI with After Effects CC 2015 on Windows:
-
-1. Start a command prompt
-2. Navigate to a directory that contains a Templater-compatible AEP file, a configured `templater-options.json`  and the `template.bat` file.
-3. Type `templater "CC 2015"` and press Enter to have have Templater interpret the configuration in the `templater-options.json` file and launch After Effects CC 2015.  A copy of `Templater 2.jsxbin` is added to your project directory.  Type `templater "CC 2015" ui` to do the same but launch After Effects with a user interface.
-4. Wait for Templater to complete versioning and tasks as specified within options' file `tasks` key.  If you get unexpected results, consult the `templater.log` file to see any messages Templater logged.
-
-#Troubleshooting the Templater CLI
-
-Templater CLI will not do anything run unless a proper logging location is setup within the `templater-options.json` file.  Please be sure that you specify an absolute path to an *existing directory* for the log location and not a path to a single file.  You should make use of either the `templater.out` or `templater.log` files to troubleshoot Templater's CLI. 

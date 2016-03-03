@@ -1,28 +1,86 @@
-param (
-    [string]$ver
+Param (
+    [string]$v = " ",
+    [switch]$ui = $false,
+    [switch]$m  = $false,
+    [switch]$h  = $false
 )
 
-if (-not $ver) {
+$usage = @'
+
+
+    Desc:   
+
+        Launches Templater for Adobe After Effects
+        from the command line.  A supported version of
+        After Effects is required to be installed on this 
+        machine for this launcher to work properly.
+
+    Usage:
+
+        .\templater.ps1 -v 'ae_version_string' [-ui] [-m]
+
+    Options:
+
+        -h
+        Shows this documentation
+
+        -v | --version 'ae_version_string'
+        The version of AE you want to use with Templater, 
+        where 'version_string' can be any ofthe following: 
+        'CC 2015' 'CC 2014' 'CC' 'CS6' 'CS5.5' 'CS5'
+
+        -ui 
+        If specified, Adobe After Effects will launch with its
+        graphical user interface
+
+        -m
+        If included, this causes AE to launch as a new, seperate,
+        process.  This is useful if you want to simultaneously
+        execute two or more versioning jobs with Templater.
+
+    Examples:
+
+        Launch without AE user interface
+          
+          > .\templater.ps1 -v 'CC 2015'
+          > .\templater.ps1 -v 'CS5'
+        
+        
+        Launch with AE user interface
+          
+          > .\templater.ps1 -v 'CC 2005' -ui
+          > .\templater.ps1 -v 'CS5' -ui
+
+
+        Launch new instance of AE without its user interface
+
+          > .\templater.ps1 -v 'CC 2015' -m
+
+'@
+
+
+if ([string]::IsNullorWhitespace($v) -or $h -eq $true) {
+    $usage
+exit
+}
+
+if ($v -ne "CC 2015" -and $v -ne "CC 2014" -and $v -ne "CC" -and $v -ne "CS6" -and $v -ne "CS5.5" -and $v -ne "CS5") {
 "
-`tUsage:
-`t`ttemplater.ps1 version [ui] [-m]
-
-`tVersion options:
-`t`t'CC 2015' 'CC2014' 'CC' 'CS6' 'CS5.5' 'CS5'
-
-`tInclude option 'ui' to launch After Effects with a GUI
-
-`tInclude option '-m' to launch After Effects as a new, separate,
-`tprocess. This is useful if you want to simultaneously execute two
-`tor more versioning jobs with Templater's CLI.
-
-`tExamples:
-`t`tTo launch CC 2015 without a GUI => .\templater.ps1 'CC 2015'
-`t`tTo launch CC 2015 with a GUI    => .\templater.ps1 'CC 2015' ui
-`t`tTo launch CS5 without a GUI     => .\templater 'CS5'
-`t`tTo launch CS5 with a GUI        => .\templater 'CS5' ui
+`t`tTempalter CLI Error: Please specify a valid string for the version of After Effects you want to launch. See 
 "
 exit
+}
+
+if ($ui -eq $false) {
+    $ui_switch = "-noui"
+} else {
+    $ui_switch = " "
+}
+
+if ($m -eq $false) {
+    $m_switch = " "
+} else {
+    $m_switch = "-m"
 }
 
 # Read templater-options.json file if it exists
@@ -48,18 +106,18 @@ if (Test-Path "$PSScriptRoot\templater-options.json"){
 
 }
 
-$app_dir="C:\Program Files\Adobe\Adobe After Effects $ver\Support Files"
+$app_dir="C:\Program Files\Adobe\Adobe After Effects $v\Support Files"
 $panels="$app_dir\Scripts\ScriptUI Panels"
 $templater_filename="Templater 2.jsxbin"
 $templater_panel="$panels\$templater_filename"
 
-if (!$args) {
-    $ui = '-noui'
-    $instance = ' '
-} else {
-    $ui = $args[1]
-    $instance = $args[2]
-}
+# if (!$args) {
+#     $ui = '-noui'
+#     $instance = ' '
+# } else {
+#     $ui = $args[1]
+#     $instance = $args[2]
+# }
 
 "`t`t* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
 `t`t*                                                               *
@@ -88,11 +146,11 @@ if (!$args) {
 Copy-Item -Force $templater_panel "$PSScriptRoot\$templater_filename"
 
 $cmd = "$app_dir\afterfx.exe"
-$cmd_args = "$ui $instance -r  $PSScriptRoot\$templater_filename"
+$cmd_args = "$ui_switch $m_switch -r  $PSScriptRoot\$templater_filename"
 
 "
-`t`tInvoking Adobe After Effects $ver =>
-`t`t`t$cmd $ui $instance -r `"$PSScriptRoot\$templater_filename`"
+`t`tInvoking Adobe After Effects $v =>
+`t`t`t$cmd $ui_switch $m_switch -r `"$PSScriptRoot\$templater_filename`"
 "
 
 $scriptblock = {
@@ -117,6 +175,11 @@ $scriptblock = {
 }
 
 Invoke-Command -ScriptBlock $scriptblock -ArgumentList $cmd, $cmd_args
+
+if ([string]::IsNullorWhitespace($log_path)) {
+    $log_path = $env:TEMP
+}
+
 "
 
 `t`tTemplater messages and errors logged to =>

@@ -20,17 +20,22 @@
                                 "placeholder_visual"      : "/path/to/a/branded/placeholder/file.png",
                                 "placeholder_audio"       : "/path/to/a/default/audio/file.wav",
                                 "unique_downloads"        : false,
-                                "bot" : {
-                                            "name"             : "",
-                                            "goog_freq"        : 5,
-                                            "post_cmd_job"     : "",
-                                            "post_cmd_batch"   : "",
-                                            "shutdown_cmd"     : "",
-                                            "max_queued"       : 20,
-                                            "job_detail_args"  : false,
-                                            "action_render"    : true,
-                                            "action_replicate" : false
-                                        }
+                                "bot"                     : {
+                                                                "name"             : "",
+                                                                "goog_freq"        : 5,
+                                                                "post_cmd_job"     : "",
+                                                                "post_cmd_batch"   : "",
+                                                                "shutdown_cmd"     : "",
+                                                                "max_queued"       : 20,
+                                                                "job_detail_args"  : false,
+                                                                "action_render"    : true,
+                                                                "action_replicate" : false
+                                                            },
+                                "remote_json"             : {
+                                                                "username" : "",
+                                                                "password" : "",
+                                                                "headers"  : { }
+                                                            }
                               },
     "tasks"                 : {
                                 "render"         : true,
@@ -40,5 +45,6 @@
                                 "bot_activate"   : false
                               },
     "save_on_completion"    : false,
-    "quit_on_completion"    : true
+    "quit_on_completion"    : true,
+    "quit_on_errors"        : []
 }
