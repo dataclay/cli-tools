@@ -5,14 +5,16 @@ Templater ships with command line interface (CLI) control only if Bot functional
 ## Requirements for running the Templater CLI
 
 #### System Requirements
-Prior to Templater 2.1.8, the launcher script was written as a Microsoft Batch script for Windows, and an AppleScript file for OSX.  These have been deprecated and are no longer supported by Dataclay.  As of Templater version 2.1.8 users should invoke the Templater CLI via the `templater.ps1` file on Windows and `templater.sh` file on OSX.  
+As of Templater version 2.1.8 users should invoke the Templater CLI via the `templater.ps1` file on Windows and `templater.sh` file on OSX.
 
+>**NOTE**</br>Prior to Templater 2.1.8, the launcher script was written as a Microsoft Batch script for Windows, and an AppleScript file for OSX.  These have been deprecated and are no longer supported.  
+
+</br>
 >###### Windows Environment
-> + Windows PowerShell must be available to the current user in order to invoke Templater via the command line.
-> + Users should have privileges to run PowerShell scripts from the PowerShell prompt.
+> + Windows PowerShell.  Users should have privileges to run PowerShell scripts from the PowerShell prompt.
 
 >##### OSX Environments
->+ Python—version 2.6 or later—must be available in user's environment in order to invoke Templater via the command line.  All recent versions of OSX already come bundled with Python.  Enter `python --version` at a new terminal prompt to verify installation—if  you get a version number, Python is installed and ready.
+>+ Python—version 2.6 or later.  All recent versions of OSX already come bundled with Python.  Enter `python --version` at a new terminal prompt to verify installation—if you see a version number, Python is installed and ready.
 
 #### Project Requirements
 To version an After Effects project with Templater's command line interface, you should first have some required resources within your project's working directory, as follows:
@@ -65,7 +67,7 @@ You should [read documentation on Dataclay's support website](http://support.dat
 
 </br>
 ##### **``data_source``** : string
->Specifies an absolute path to a tabbed-delimited file, or a URL to a Google Sheet feed.  You can get the URL feed of a Google Sheet from the `Google Spreadsheet Setup` dialog launched by clicking the `Google` button found on the Templater panel within After Effects.
+>Specifies an absolute path to a tabbed-delimited file, a Google Sheet feed, or any URL that responds with properly formatted json object array.  You can get the URL feed of a Google Sheet from the `Google Spreadsheet Setup` dialog launched by clicking the `Google` button found on the Templater panel within After Effects.
 
 </br>
 ##### **``aep``** : string
@@ -112,7 +114,7 @@ Assuming your file system has a directory named `WeatherForecast` containing the
 	>iMac:WeatherForecast dataclay$ templater.sh -v 'CC 2015' 
 	>```
 
-
+ 
 
  ###### </br>NOTE
 If the launcher file does not execute you may need to set its permissions.  On OSX, you can use `sudo chmod u+x templater.sh` to ensure `templater.sh` is executable for the current user.  On Windows, use the "Security" tab in the `File Properties` dialog to change the permissions of `templater.ps1` for the current user. 
@@ -170,11 +172,11 @@ The following is an example of an error object that is output to `templater.err`
 
 </br>
 ##### **``ae``**
->The message of the error thrown by After Effects if any
+>The message of the error thrown by After Effects, if any.
 
 </br>
 ##### **``details``**
->Additional messaging for the specific error and also offers suggestions to fix the problem
+>Additional messaging for the specific error and also offers suggestions to troubleshoot the error.
 
 </br>
 ##### **``reported``**
