@@ -48,7 +48,7 @@ $usage = @'
         
         Launch with AE user interface
           
-          > .\templater.ps1 -v 'CC 2005' -ui
+          > .\templater.ps1 -v 'CC 2015' -ui
           > .\templater.ps1 -v 'CS5' -ui
 
 
@@ -110,14 +110,6 @@ $app_dir="C:\Program Files\Adobe\Adobe After Effects $v\Support Files"
 $panels="$app_dir\Scripts\ScriptUI Panels"
 $templater_filename="Templater 2.jsxbin"
 $templater_panel="$panels\$templater_filename"
-
-# if (!$args) {
-#     $ui = '-noui'
-#     $instance = ' '
-# } else {
-#     $ui = $args[1]
-#     $instance = $args[2]
-# }
 
 "`t`t* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
 `t`t*                                                               *

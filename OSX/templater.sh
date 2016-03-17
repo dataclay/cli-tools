@@ -44,7 +44,7 @@ cat << EOF
 		
 		Launch with AE user interface
 		  
-		  $ templater.sh -v 'CC 2005' -ui
+		  $ templater.sh -v 'CC 2015' -ui
 		  $ templater.sh -v 'CS5' -ui
 
 		Launch new instance of AE without user interface
