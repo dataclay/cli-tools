@@ -136,7 +136,6 @@ row_start=$(get_conf row_start)
 row_end=$(get_conf row_end)
 pfx=$(get_conf output_prefix)
 
-echo "Log file is $log"
 if [ "$log" == "" ] || [ "$log" == " " ]; then
 	log=/private${TMPDIR}TemporaryItems
 fi
