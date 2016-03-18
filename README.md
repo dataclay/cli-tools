@@ -22,7 +22,7 @@ To version an After Effects project with Templater's command line interface, you
 
 *	An Adobe After Effects project file that is already rigged for Templater.  The project file should open within After Effects without displaying any error dialogs related to missing dependencies such as fonts, footage sources, etc.
 *	A [`templater-options.json`](https://github.com/dataclay/cli-tools/blob/master/Windows/templater-options.json) file that specifies Templater's configuration and options in JSON format
-*	The CLI launcher script—either [`templater.ps1`](https://github.com/dataclay/cli-tools/tree/master/Windows/templater.ps1) for Windows Powershell or [`templater.sh`](https://github.com/dataclay/cli-tools/tree/master/Windows/templater.sh) provided for OSX Terminal.
+*	The CLI launcher script—either [`templater.ps1`](https://github.com/dataclay/cli-tools/tree/master/Windows/templater.ps1) for Windows Powershell or [`templater.sh`](https://github.com/dataclay/cli-tools/tree/master/OSX/templater.sh) provided for OSX Terminal.
 
 On Windows, for example, a directory listing of a weather forecast project should include the following files at a bare minimum:
 
@@ -55,7 +55,7 @@ While paths on OSX must be entered with the forward slash.
 	
 #### CLI Property Keys
 
-The information below defines some important keys for running the CLI.  Refer to [documentation on Dataclay's support website](http://support.dataclay.com/content/how_to/cli/templater_cli_configuration_properties.htm) for detailed documentation on each property key. :
+The information below defines some important keys for running the CLI.  Refer to [documentation on Dataclay's support website](http://support.dataclay.com/content/how_to/cli/templater_cli_configuration_properties.htm) for detailed documentation on each property key.
 
 ##### **`log_location`**  :  *string*
 >Specifies **a path to a directory** for multiple message and error log files.  Read `templater.out` when you want to inspect the log as Templater executes—for example with a command like `tail -f templater.out`.  Open `templater.log` if you need to examine the log using a standard text editor.
