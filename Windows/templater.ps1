@@ -27,7 +27,7 @@ $usage = @'
         -v | --version 'ae_version_string'
         The version of AE you want to use with Templater, 
         where 'version_string' can be any ofthe following: 
-        'CC 2015' 'CC 2014' 'CC' 'CS6' 'CS5.5' 'CS5'
+        'CC 2017' 'CC 2015.3' 'CC 2015' 'CC 2014' 'CC' 'CS6' 'CS5.5' 'CS5'
 
         -ui 
         If specified, Adobe After Effects will launch with its
@@ -64,9 +64,9 @@ if ([string]::IsNullorWhitespace($v) -or $h -eq $true) {
 exit
 }
 
-if ($v -ne "CC 2015" -and $v -ne "CC 2014" -and $v -ne "CC" -and $v -ne "CS6" -and $v -ne "CS5.5" -and $v -ne "CS5") {
+if ($v -ne "CC 2017" -and $v -ne "CC 2015.3" -and $v -ne "CC 2015" -and $v -ne "CC 2014" -and $v -ne "CC" -and $v -ne "CS6" -and $v -ne "CS5.5" -and $v -ne "CS5") {
 "
-`t`tTempalter CLI Error: Please specify a valid string for the version of After Effects you want to launch. See 
+`t`tTempalter CLI Error: Please specify a valid string for the version of After Effects you want to launch. Use -h for more information.
 "
 exit
 }
