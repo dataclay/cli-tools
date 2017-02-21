@@ -203,7 +203,7 @@ echo "		$log/templater.err"
 #Display last log
 echo " "
 echo "	Last logged message =>"
-if [ -f $log/templater.log ]; then
+if [ -f "$log/templater.log" ]; then
    cat "$log/templater.log" | grep "." | tail -1
 else 
    echo "		[Empty Log]"
@@ -212,7 +212,7 @@ fi
 #Display last error
 echo " "
 echo "	Last reported error =>"
-if [ -s $log/templater.err ]; then
+if [ -s "$log/templater.err" ]; then
     cat "$log/templater.err" | grep "." | tail -1
 else
     echo "		[No Errors]"
