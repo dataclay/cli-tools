@@ -89,7 +89,7 @@ while :; do
             break
             ;;
         -?*)
-            printf '\nTempalter CLI Launch Warning: Unknown option (ignored): %s\n' "$1" >&2
+            printf '\nTemplater CLI Launch Warning: Unknown option (ignored): %s\n' "$1" >&2
             ;;
         *)  # Default case: If no more options then break out of the loop.
             break
