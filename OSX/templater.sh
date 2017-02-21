@@ -22,8 +22,8 @@ cat << EOF
 		-v | --version
 		The version of Adobe After Effects you want to use
 		with Templater, where 'version_string' can be any of
-		the following: 
-		'CC 2015' 'CC 2014' 'CC' 'CS6' 'CS5.5' 'CS5'
+		the following:
+		'CC 2017' 'CC 2015.3' 'CC 2015' 'CC 2014' 'CC' 'CS6' 'CS5.5' 'CS5'
 
 		-ui 
 		If specified, Adobe After Effects will launch with its
@@ -73,7 +73,7 @@ while :; do
             else
                 printf '\nTemplater CLI Launch Error: --version or -v option requires a non-empty argument.\n'
                 printf '                            Use any one of the following arguments for the -v option\n'
-                printf '                            \"CC 2015\", \"CC 2014\", \"CC\", \"CS6\", \"CS5.5\", \"CS5\"\n\n' 
+                printf '                            \"CC 2017\", \"CC 2015.3\", \"CC 2015\", \"CC 2014\", \"CC\", \"CS6\", \"CS5.5\", \"CS5\"\n\n'
                 printf 'Use --help option to see description and usage examples\n\n'
                 exit 1
             fi 
