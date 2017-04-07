@@ -2,19 +2,18 @@
 Templater ships with command line interface (CLI) control only in the Bot edition.  The files contained in this repository help get started using Templater's CLI.
 
 <a id="requirements"></a>
-### Requirements for running the Templater CLI
+## Requirements for running the Templater CLI
 
-#### System Requirements
+### System Requirements
 As of Templater version 2.1.8 users should invoke the Templater CLI via the `templater.ps1` file on Windows and `templater.sh` file on OSX.  Prior to Templater 2.1.8, the launcher script was written as a Microsoft Batch script for Windows, and an AppleScript file for OSX.  These have been deprecated and are no longer supported.  
 
->##### Windows Environment
+>#### Windows Environment
 > + Windows PowerShell.  Users should have privileges to run PowerShell scripts from the PowerShell prompt.
 
->##### OSX Environments
+>#### OSX Environments
 >+ Python—version 2.6 or later.  All recent versions of OSX already come bundled with Python.  Enter `python --version` at a new terminal prompt to verify installation—if you see a version number, Python is installed and ready.
 
-&nbsp;
-#### Project Requirements
+### Project Requirements
 To version an After Effects project with Templater's command line interface, you should first have the following required resources within your project's working directory:
 
 *	An Adobe After Effects project file that is already rigged for Templater.  The project file should open within After Effects without displaying any error dialogs related to missing dependencies such as fonts, footage sources, etc.
@@ -40,7 +39,7 @@ On OSX, the same weather forecast project directory listing should include the f
 Once you have these files set up and within a single directory, you can use Templater's CLI to version your AEP file and successfully troubleshoot problems you encounter with it.
 
 &nbsp;
-### Configuring the Templater CLI
+## Configuring the Templater CLI
 Configure the Templater CLI by editing the JSON-formatted [`templater-options.json`](https://github.com/dataclay/cli-tools/blob/master/Windows/templater-options.json) file.  If you forget to declare a required key or a key has an invalid value, Templater will report an error in your logs.  Some keys will have default values if they are not specified in the file.
 
 Note that on Windows, paths specified within the configuration file must be entered with a double-backslash.
@@ -51,38 +50,38 @@ While paths on OSX must be entered with the forward slash.
 	
 	/Users/dataclay/Templates/Styles/Modern/WeatherForecast.aep
 	
-#### CLI Property Keys
+### CLI Property Keys
 
 The information below defines some important keys for running the CLI.  Refer to [documentation on Dataclay's support website](http://support.dataclay.com/content/how_to/cli/templater_cli_configuration_properties.htm) for detailed documentation on each property key.
 
-##### **`log_location`**  :  *string*
+#### **`log_location`**  :  *string*
 >Specifies **a path to a directory** for multiple message and error log files.  Read `templater.out` when you want to inspect the log as Templater executes—for example with a command like `tail -f templater.out`.  Open `templater.log` if you need to examine the log using a standard text editor.
 
-##### **``tasks``** : object
+#### **``tasks``** : object
 >An object with properties that specify what you want Templater to actually do.  The values for the keys in this group should only be `true` or `false`.  For example, if you want Templater to *only* render, then set the `render` key to `true` and the others to `false`.
 
-##### **``prefs``** : object
+#### **``prefs``** : object
 >A group of keys that configure Templater's preferences. 
 
-##### **``data_source``** : string
+#### **``data_source``** : string
 >Specifies an absolute path to a tabbed-separated value file, a Google Sheet feed, a json-formatted text file, or any URL that responds with a properly formatted json object array.  You can get the URL feed of a Google Sheet from the `Google Spreadsheet Setup` dialog launched by clicking the `Google` button found on the Templater panel within After Effects.
 
-##### **``aep``** : string
+#### **``aep``** : string
 >Specifies an absolute path to the project file that is to be versioned using the specified with the `data_source`.
 
-##### **``row_start``** & **``row_end``**  : integer
+#### **``row_start``** & **``row_end``**  : integer
 >Specifies the start row and end rows in the data source to begin and end batch versioning processes.  For Google Sheet and tabbed-separated value files,  `row_start` should be greater than or equal to `2`, and for JSON data sources `row_start` should be greater than or equal to `1`.  In addition, `row_end` should always be greater than `row_start`.
 
-##### **``output_location``** : string
+#### **``output_location``** : string
 >Specifies an absolute path to where Templater should output all renders that come out of the After Effects render queue.
 
-##### **``render_settings``** & **``output_module``** : string
+#### **``render_settings``** & **``output_module``** : string
 >Specifies the Render Settings Template and Output Module Template used when Templater loads versioned compositions into the After Effects render queue.  The values for these keys are strings that should match the names as found in After Effects' *Render Setting Templates* and *Output Module Templates* dialog.
 
-##### **``save_on_completion``** : boolean
+#### **``save_on_completion``** : boolean
 >Specifies whether or not Templater should save the versioned project file after running its tasks.
 
-##### **``quit_on_completion``** : boolean
+#### **``quit_on_completion``** : boolean
 >Specifies whether or not Templater should quit after running its tasks.
 
 &nbsp;
