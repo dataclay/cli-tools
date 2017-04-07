@@ -118,54 +118,54 @@ For example, assuming your file system has a directory named `WeatherForecast` c
 &nbsp;
 ### Templater Launcher Tool Help
 Use `.\templater.ps1 -h` on Windows or `./templater.sh -h` on OSX to see information about options and arguments.  The following shows the help as it appears in Windows PowerShell.
->```
->	Templater Launcher from Dataclay
->
->	Desc:
->
->      Launches Templater for Adobe After Effects
->      from the command line.  A supported version of
->      After Effects is required to be installed on this
->      machine for this launcher to work properly.
->
->   Usage:
->
->      .\templater.ps1 [-h] -v 'ae_version_string' [-ui] [-m]
->
->   Options:
->
->      -h
->      Shows this documentation
->
->      -v | --version 'ae_version_string'
->      The version of AE you want to use with Templater,
->      where 'version_string' can be any of the following:
->      'CC 2017' 'CC 2015.3' 'CC 2015' 'CC 2014' 'CC' 'CS6' 'CS5.5' 'CS5'.
->
->      -ui
->      When used, Adobe After Effects launches with a user interface
->
->      -m
->      If included, this causes AE to launch as a new, seperate,
->      process.  This is useful if you want to simultaneously
->      execute two or more versioning jobs with Templater.
->
->    Examples:
->
->        Launch without AE user interface
->
->          > .\templater.ps1 -v 'CC 2017'
->          > .\templater.ps1 -v 'CS5'
->
->        Launch with AE user interface
->
->          > .\templater.ps1 -v 'CC 2017' -ui
->          > .\templater.ps1 -v 'CS5' -ui
->
->        Launch new instance of AE without its user interface
->
->          > .\templater.ps1 -v 'CC 2017' -m
->```
+```
+	Templater Launcher from Dataclay
+
+	Desc:
+
+      Launches Templater for Adobe After Effects
+      from the command line.  A supported version of
+      After Effects is required to be installed on this
+      machine for this launcher to work properly.
+
+   Usage:
+
+      .\templater.ps1 [-h] -v 'ae_version_string' [-ui] [-m]
+
+   Options:
+
+      -h
+      Shows this documentation
+
+      -v | --version 'ae_version_string'
+      The version of AE you want to use with Templater,
+      where 'version_string' can be any of the following:
+      'CC 2017' 'CC 2015.3' 'CC 2015' 'CC 2014' 'CC' 'CS6' 'CS5.5' 'CS5'.
+
+      -ui
+      When used, Adobe After Effects launches with a user interface
+
+      -m
+      If included, this causes AE to launch as a new, seperate,
+      process.  This is useful if you want to simultaneously
+      execute two or more versioning jobs with Templater.
+
+    Examples:
+
+        Launch without AE user interface
+
+          > .\templater.ps1 -v 'CC 2017'
+          > .\templater.ps1 -v 'CS5'
+
+        Launch with AE user interface
+
+          > .\templater.ps1 -v 'CC 2017' -ui
+          > .\templater.ps1 -v 'CS5' -ui
+
+        Launch new instance of AE without its user interface
+
+          > .\templater.ps1 -v 'CC 2017' -m
+```
 
 &nbsp;
 ## Troubleshooting the Templater CLI
