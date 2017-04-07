@@ -105,7 +105,7 @@ For example, assuming your file system has a directory named `WeatherForecast` c
 	>iMac:WeatherForecast dataclay$ templater.sh -v 'CC 2017' 
 	>```
 
-    ####NOTE
+    #### NOTE
     If the launcher file does not execute, you may need to set its permissions.  On OSX, you can use `sudo chmod u+x templater.sh` to ensure `templater.sh` is executable for the current user.  On Windows, use the "Security" tab in the `File Properties` dialog to change the permissions of `templater.ps1` for the current user. 
 
 4. Wait for Templater to configure according to the `templater-options.json` file and complete its versioning tasks with After Effects.
