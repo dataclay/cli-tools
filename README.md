@@ -14,7 +14,7 @@ As of Templater version 2.1.8 users should invoke the Templater CLI via the `tem
 >+ Python—version 2.6 or later.  All recent versions of OSX already come bundled with Python.  Enter `python --version` at a new terminal prompt to verify installation—if you see a version number, Python is installed and ready.
 
 &nbsp;
->**NOTE**
+>**NOTE** <br>
 >Prior to Templater 2.1.8, the launcher script was written as a Microsoft Batch script for Windows, and an AppleScript file for OSX.  These have been deprecated and are no longer supported.  
 
 &nbsp;
