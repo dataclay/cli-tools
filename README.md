@@ -139,7 +139,7 @@ Use `.\templater.ps1 -h` on Windows or `./templater.sh -h` on OSX to see informa
 >      -v | --version 'ae_version_string'
 >      The version of AE you want to use with Templater,
 >      where 'version_string' can be any of the following:
->      'CC 2015' 'CC 2014' 'CC' 'CS6' 'CS5.5' 'CS5'.
+>      'CC 2017' 'CC 2015.3' 'CC 2015' 'CC 2014' 'CC' 'CS6' 'CS5.5' 'CS5'.
 >
 >      -ui
 >      When used, Adobe After Effects launches with a user interface
@@ -164,9 +164,9 @@ Use `.\templater.ps1 -h` on Windows or `./templater.sh -h` on OSX to see informa
 >        Launch new instance of AE without its user interface
 >
 >          > .\templater.ps1 -v 'CC 2017' -m
->          
-```
+>```
 
+&nbsp;
 ## Troubleshooting the Templater CLI
 The PowerShell and Bash script launchers report the last logged message and the last reported error after Templater completes execution.  Use these logs to help you troubleshoot the Templater CLI.  Messages are logged to `templater.log` while errors are logged to `templater.err`.  Errors are logged as single-line JSON objects.  The error object contains useful information that can be processed by other applications.
 
