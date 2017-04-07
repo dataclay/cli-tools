@@ -108,7 +108,8 @@ For example, assuming your file system has a directory named `WeatherForecast` c
 
     >#### NOTE
     >If the launcher file does not execute, you may need to set its permissions.  On OSX, you can use `sudo chmod u+x templater.sh` to ensure `templater.sh` is executable for the current user.  On Windows, use the "Security" tab in the `File Properties` dialog to change the permissions of `templater.ps1` for the current user. 
-    &nbsp;
+
+&nbsp;
 
 4. Wait for Templater to configure according to the `templater-options.json` file and complete its versioning tasks with After Effects.
 5. After processing is complete, the launcher script displays the last message logged to `templater.log` as well as the last reported error as found in `templater.err`.
