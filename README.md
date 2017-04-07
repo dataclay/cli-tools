@@ -2,9 +2,9 @@
 Templater ships with command line interface (CLI) control only in the Bot edition.  The files contained in this repository help get started using Templater's CLI.
 
 <a id="requirements"></a>
-## Requirements for running the Templater CLI
+### Requirements for running the Templater CLI
 
-### System Requirements
+#### System Requirements
 As of Templater version 2.1.8 users should invoke the Templater CLI via the `templater.ps1` file on Windows and `templater.sh` file on OSX.
 
 >##### Windows Environment
