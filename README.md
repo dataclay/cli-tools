@@ -58,43 +58,34 @@ The information below defines some important keys for running the CLI.  Refer to
 ##### **`log_location`**  :  *string*
 >Specifies **a path to a directory** for multiple message and error log files.  Read `templater.out` when you want to inspect the log as Templater executes—for example with a command like `tail -f templater.out`.  Open `templater.log` if you need to examine the log using a standard text editor.
 
-&nbsp;
 ##### **``tasks``** : object
 >An object with properties that specify what you want Templater to actually do.  The values for the keys in this group should only be `true` or `false`.  For example, if you want Templater to *only* render, then set the `render` key to `true` and the others to `false`.
 
-&nbsp;
 ##### **``prefs``** : object
 >A group of keys that configure Templater's preferences. 
 
-&nbsp;
 ##### **``data_source``** : string
 >Specifies an absolute path to a tabbed-separated value file, a Google Sheet feed, a json-formatted text file, or any URL that responds with a properly formatted json object array.  You can get the URL feed of a Google Sheet from the `Google Spreadsheet Setup` dialog launched by clicking the `Google` button found on the Templater panel within After Effects.
 
-&nbsp;
 ##### **``aep``** : string
 >Specifies an absolute path to the project file that is to be versioned using the specified with the `data_source`.
 
-&nbsp;
 ##### **``row_start``** & **``row_end``**  : integer
 >Specifies the start row and end rows in the data source to begin and end batch versioning processes.  For Google Sheet and tabbed-separated value files,  `row_start` should be greater than or equal to `2`, and for JSON data sources `row_start` should be greater than or equal to `1`.  In addition, `row_end` should always be greater than `row_start`.
 
-&nbsp;
 ##### **``output_location``** : string
 >Specifies an absolute path to where Templater should output all renders that come out of the After Effects render queue.
 
-&nbsp;
 ##### **``render_settings``** & **``output_module``** : string
 >Specifies the Render Settings Template and Output Module Template used when Templater loads versioned compositions into the After Effects render queue.  The values for these keys are strings that should match the names as found in After Effects' *Render Setting Templates* and *Output Module Templates* dialog.
 
-&nbsp;
 ##### **``save_on_completion``** : boolean
 >Specifies whether or not Templater should save the versioned project file after running its tasks.
 
-&nbsp;
 ##### **``quit_on_completion``** : boolean
 >Specifies whether or not Templater should quit after running its tasks.
-	  	
 
+&nbsp;
 ## Running the Templater via CLI
 
 Start Templater from the command line by entering the name of the launcher script file followed by some arguments.  If you don't supply the required arguments, the launcher script will output its usage, documentation, and examples.
