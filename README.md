@@ -115,7 +115,8 @@ For example, assuming your file system has a directory named `WeatherForecast` c
 5. After processing is complete, the launcher script displays the last message logged to `templater.log` as well as the last reported error as found in `templater.err`.
 6. Begin troubleshooting if the desired output is not found.  You should verify configuration in the `templater-options.json` file, and then inspect the `templater.log` and `templater.err` files to learn more about any issues Templater reports.  Refer to *Troubleshooting the Templater CLI* below for more information.
 
-#### Templater Launcher Tool Help
+&nbsp;
+### Templater Launcher Tool Help
 Use `.\templater.ps1 -h` on Windows or `./templater.sh -h` on OSX to see information about options and arguments.  The following shows the help as it appears in Windows PowerShell.
 >```
 >	Templater Launcher from Dataclay
@@ -182,11 +183,11 @@ The following is an example of an error object that is output to `templater.err`
 }
 ```
 
-#### Properties in Templater error objects
+### Templater error object properties
 ##### **`code`**
 >A numerical identifier for the reported error.  You can use the error code in the `quit_on_errors` array as defined in [`templater-options.json`](https://github.com/dataclay/cli-tools/blob/master/Windows/templater-options.json) file to force quit After Effects on the first occurrence of that error code.
-
-> ###### Error Code Descriptions
+> 
+>###### Error Code Descriptions
 >| error code |              description              |
 >|----------:|:-------------------------------------|
 >| 1          | Error starting Templater application |
@@ -201,23 +202,19 @@ The following is an example of an error object that is output to `templater.err`
 >| 4002       | Google Drive retrieval error                                       |
 >| 5001       | Templater layout engine error                                       |
 >| 6001       | HTTP request error                                        |
-
+>
 >**NOTE**
 >This list does not contain all possible errors that you may encounter while using Templater.
 
-&nbsp;
 ##### **``desc``**
 >A short description of the reported error code
 
-&nbsp;
 ##### **``ae``**
 >The message of the error thrown by After Effects, if any.
 
-&nbsp;
 ##### **``details``**
 >Additional messaging for the specific error and also offers suggestions to troubleshoot the error.
 
-&nbsp;
 ##### **``reported``**
 >A time stamp showing the date and time the error was reported
 
