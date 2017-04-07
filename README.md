@@ -5,17 +5,13 @@ Templater ships with command line interface (CLI) control only in the Bot editio
 ### Requirements for running the Templater CLI
 
 #### System Requirements
-As of Templater version 2.1.8 users should invoke the Templater CLI via the `templater.ps1` file on Windows and `templater.sh` file on OSX.
+As of Templater version 2.1.8 users should invoke the Templater CLI via the `templater.ps1` file on Windows and `templater.sh` file on OSX.  Prior to Templater 2.1.8, the launcher script was written as a Microsoft Batch script for Windows, and an AppleScript file for OSX.  These have been deprecated and are no longer supported.  
 
 >##### Windows Environment
 > + Windows PowerShell.  Users should have privileges to run PowerShell scripts from the PowerShell prompt.
 
 >##### OSX Environments
 >+ Python—version 2.6 or later.  All recent versions of OSX already come bundled with Python.  Enter `python --version` at a new terminal prompt to verify installation—if you see a version number, Python is installed and ready.
-
-&nbsp;
->**NOTE** <br>
->Prior to Templater 2.1.8, the launcher script was written as a Microsoft Batch script for Windows, and an AppleScript file for OSX.  These have been deprecated and are no longer supported.  
 
 &nbsp;
 #### Project Requirements
@@ -43,7 +39,8 @@ On OSX, the same weather forecast project directory listing should include the f
 ```
 Once you have these files set up and within a single directory, you can use Templater's CLI to version your AEP file and successfully troubleshoot problems you encounter with it.
 
-## Configuring the Templater CLI
+&nbsp;
+### Configuring the Templater CLI
 Configure the Templater CLI by editing the JSON-formatted [`templater-options.json`](https://github.com/dataclay/cli-tools/blob/master/Windows/templater-options.json) file.  If you forget to declare a required key or a key has an invalid value, Templater will report an error in your logs.  Some keys will have default values if they are not specified in the file.
 
 Note that on Windows, paths specified within the configuration file must be entered with a double-backslash.
