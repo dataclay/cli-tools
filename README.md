@@ -4,19 +4,20 @@ Templater ships with command line interface (CLI) control only in the Bot editio
 <a id="requirements"></a>
 ## Requirements for running the Templater CLI
 
-#### System Requirements
+### System Requirements
 As of Templater version 2.1.8 users should invoke the Templater CLI via the `templater.ps1` file on Windows and `templater.sh` file on OSX.
 
->###### Windows Environment
+>##### Windows Environment
 > + Windows PowerShell.  Users should have privileges to run PowerShell scripts from the PowerShell prompt.
 
 >##### OSX Environments
 >+ Python—version 2.6 or later.  All recent versions of OSX already come bundled with Python.  Enter `python --version` at a new terminal prompt to verify installation—if you see a version number, Python is installed and ready.
 
-</br>
->**NOTE**</br>Prior to Templater 2.1.8, the launcher script was written as a Microsoft Batch script for Windows, and an AppleScript file for OSX.  These have been deprecated and are no longer supported.  
+&nbsp;
+>**NOTE**
+>Prior to Templater 2.1.8, the launcher script was written as a Microsoft Batch script for Windows, and an AppleScript file for OSX.  These have been deprecated and are no longer supported.  
 
-</br>
+&nbsp;
 #### Project Requirements
 To version an After Effects project with Templater's command line interface, you should first have the following required resources within your project's working directory:
 
@@ -60,39 +61,39 @@ The information below defines some important keys for running the CLI.  Refer to
 ##### **`log_location`**  :  *string*
 >Specifies **a path to a directory** for multiple message and error log files.  Read `templater.out` when you want to inspect the log as Templater executes—for example with a command like `tail -f templater.out`.  Open `templater.log` if you need to examine the log using a standard text editor.
 
-</br>
+&nbsp;
 ##### **``tasks``** : object
 >An object with properties that specify what you want Templater to actually do.  The values for the keys in this group should only be `true` or `false`.  For example, if you want Templater to *only* render, then set the `render` key to `true` and the others to `false`.
 
-</br>
+&nbsp;
 ##### **``prefs``** : object
 >A group of keys that configure Templater's preferences. 
 
-</br>
+&nbsp;
 ##### **``data_source``** : string
 >Specifies an absolute path to a tabbed-separated value file, a Google Sheet feed, a json-formatted text file, or any URL that responds with a properly formatted json object array.  You can get the URL feed of a Google Sheet from the `Google Spreadsheet Setup` dialog launched by clicking the `Google` button found on the Templater panel within After Effects.
 
-</br>
+&nbsp;
 ##### **``aep``** : string
 >Specifies an absolute path to the project file that is to be versioned using the specified with the `data_source`.
 
-</br>
+&nbsp;
 ##### **``row_start``** & **``row_end``**  : integer
 >Specifies the start row and end rows in the data source to begin and end batch versioning processes.  For Google Sheet and tabbed-separated value files,  `row_start` should be greater than or equal to `2`, and for JSON data sources `row_start` should be greater than or equal to `1`.  In addition, `row_end` should always be greater than `row_start`.
 
-</br>
+&nbsp;
 ##### **``output_location``** : string
 >Specifies an absolute path to where Templater should output all renders that come out of the After Effects render queue.
 
-</br>
+&nbsp;
 ##### **``render_settings``** & **``output_module``** : string
 >Specifies the Render Settings Template and Output Module Template used when Templater loads versioned compositions into the After Effects render queue.  The values for these keys are strings that should match the names as found in After Effects' *Render Setting Templates* and *Output Module Templates* dialog.
 
-</br>
+&nbsp;
 ##### **``save_on_completion``** : boolean
 >Specifies whether or not Templater should save the versioned project file after running its tasks.
 
-</br>
+&nbsp;
 ##### **``quit_on_completion``** : boolean
 >Specifies whether or not Templater should quit after running its tasks.
 	  	
@@ -198,36 +199,36 @@ The following is an example of an error object that is output to `templater.err`
 
 > ###### Error Code Descriptions
 >| error code |              description              |
-|----------:|:-------------------------------------|
-| 1          | Error starting Templater application |
-| 2          | Error initializing Templater CLI |
-| 1001    | Error swapping footage source                                       |
-| 1002    | Error downloading remote footage source                                       |
-| 1003    | Could not find the footage file in network |
-| 2001    | Command line execution error                                      |
-| 2002       | CLI configuration file error                                       |
-| 3001       | Error conforming row data                                       |
-| 4001       | Google Open Authentication (OAuth) error                                       |
-| 4002       | Google Drive retrieval error                                       |
-| 5001       | Templater layout engine error                                       |
-| 6001       | HTTP request error                                        |
+>|----------:|:-------------------------------------|
+>| 1          | Error starting Templater application |
+>| 2          | Error initializing Templater CLI |
+>| 1001    | Error swapping footage source                                       |
+>| 1002    | Error downloading remote footage source                                       |
+>| 1003    | Could not find the footage file in network |
+>| 2001    | Command line execution error                                      |
+>| 2002       | CLI configuration file error                                       |
+>| 3001       | Error conforming row data                                       |
+>| 4001       | Google Open Authentication (OAuth) error                                       |
+>| 4002       | Google Drive retrieval error                                       |
+>| 5001       | Templater layout engine error                                       |
+>| 6001       | HTTP request error                                        |
 
->**NOTE**</br>
+>**NOTE**
 >This list does not contain all possible errors that you may encounter while using Templater.
 
-</br>
+&nbsp;
 ##### **``desc``**
 >A short description of the reported error code
 
-</br>
+&nbsp;
 ##### **``ae``**
 >The message of the error thrown by After Effects, if any.
 
-</br>
+&nbsp;
 ##### **``details``**
 >Additional messaging for the specific error and also offers suggestions to troubleshoot the error.
 
-</br>
+&nbsp;
 ##### **``reported``**
 >A time stamp showing the date and time the error was reported
 
