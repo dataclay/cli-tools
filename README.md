@@ -104,12 +104,11 @@ For example, assuming your file system has a directory named `WeatherForecast` c
 	>```
 	>iMac:WeatherForecast dataclay$ templater.sh -v 'CC 2017' 
 	>```
+    &nbsp;
 
-&nbsp;
     >#### NOTE
     >If the launcher file does not execute, you may need to set its permissions.  On OSX, you can use `sudo chmod u+x templater.sh` to ensure `templater.sh` is executable for the current user.  On Windows, use the "Security" tab in the `File Properties` dialog to change the permissions of `templater.ps1` for the current user. 
 
-&nbsp;
 4. Wait for Templater to configure according to the `templater-options.json` file and complete its versioning tasks with After Effects.
 5. After processing is complete, the launcher script displays the last message logged to `templater.log` as well as the last reported error as found in `templater.err`.
 6. Begin troubleshooting if the desired output is not found.  You should verify configuration in the `templater-options.json` file, and then inspect the `templater.log` and `templater.err` files to learn more about any issues Templater reports.  Refer to *Troubleshooting the Templater CLI* below for more information.
