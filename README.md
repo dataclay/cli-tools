@@ -96,13 +96,13 @@ For example, assuming your file system has a directory named `WeatherForecast` c
 3. On Windows, at the Powershell prompt `>`, enter the following:
 
 	>```
-	>PS C:\Templates\WeatherForecast> .\templater.ps1 -v 'CC 2017'
+	>PS C:\Templates\WeatherForecast> .\templater.ps1 -v 'CC 2018'
 	>```
 	
 	On OSX, at the Terminal prompt `$`, enter the following:
 	
 	>```
-	>iMac:WeatherForecast dataclay$ templater.sh -v 'CC 2017' 
+	>iMac:WeatherForecast dataclay$ templater.sh -v 'CC 2018' 
 	>```
     &nbsp;
 
@@ -140,7 +140,7 @@ Use `.\templater.ps1 -h` on Windows or `./templater.sh -h` on OSX to see informa
       -v | --version 'ae_version_string'
       The version of AE you want to use with Templater,
       where 'version_string' can be any of the following:
-      'CC 2017' 'CC 2015.3' 'CC 2015' 'CC 2014' 'CC' 'CS6' 'CS5.5' 'CS5'.
+      'CC 2018' 'CC 2017' 'CC 2015.3' 'CC 2015' 'CC 2014' 'CC' 'CS6' 'CS5.5' 'CS5'.
 
       -ui
       When used, Adobe After Effects launches with a user interface
@@ -154,17 +154,17 @@ Use `.\templater.ps1 -h` on Windows or `./templater.sh -h` on OSX to see informa
 
         Launch without AE user interface
 
-          > .\templater.ps1 -v 'CC 2017'
+          > .\templater.ps1 -v 'CC 2018'
           > .\templater.ps1 -v 'CS5'
 
         Launch with AE user interface
 
-          > .\templater.ps1 -v 'CC 2017' -ui
+          > .\templater.ps1 -v 'CC 2018' -ui
           > .\templater.ps1 -v 'CS5' -ui
 
         Launch new instance of AE without its user interface
 
-          > .\templater.ps1 -v 'CC 2017' -m
+          > .\templater.ps1 -v 'CC 2018' -m
 ```
 
 &nbsp;
