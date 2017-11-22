@@ -96,13 +96,13 @@ For example, assuming your file system has a directory named `WeatherForecast` c
 3. On Windows, at the Powershell prompt `>`, enter the following:
 
 	>```
-	>PS C:\Templates\WeatherForecast> .\templater.ps1 -v 'CC 2017'
+	>PS C:\Templates\WeatherForecast> .\templater.ps1 -v 'CC 2018'
 	>```
 	
 	On OSX, at the Terminal prompt `$`, enter the following:
 	
 	>```
-	>iMac:WeatherForecast dataclay$ templater.sh -v 'CC 2017' 
+	>iMac:WeatherForecast dataclay$ templater.sh -v 'CC 2018' 
 	>```
     &nbsp;
 

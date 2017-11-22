@@ -54,7 +54,7 @@ $usage = @'
 
         Launch new instance of AE without its user interface
 
-          > .\templater.ps1 -v 'CC 2015' -m
+          > .\templater.ps1 -v 'CC 2018' -m
 
 '@
 
