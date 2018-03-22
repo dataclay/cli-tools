@@ -164,6 +164,7 @@ read -r -d '' header << EOM
 		Output Module      => $output_mod
 		Output Prefix      => $pfx
 		Task Range         => $row_start through $row_end
+        Preferences        => $prefs
 EOM
 
 echo "$header"
@@ -172,7 +173,7 @@ echo "$header"
 echo ""
 echo "	Initializing Project Directory =>"
 echo "		Copying Templater Runtime"
-cp -v "$app_dir$panels$templater_filename" "$PWD/$templater_filename"
+cp -v "$app_dir$panels$templater_filename" "$PWD/$templater_filename" | sed 's/^/        /'
 
 #Magical osascript block to invoke After Effects!
 echo ""
@@ -193,8 +194,8 @@ EOM
 
 echo ""
 echo "	Now performing tasks in Adobe After Effects $version.  Please wait..."
+osascript -e "$ae_proc" | sed 's/^/        After Effects Process return code => /'
 echo ""
-osascript -e "$ae_proc"
 
 echo "	Templater messages and errors logged to =>"
 echo "		$log/templater.log"
@@ -202,9 +203,9 @@ echo "		$log/templater.err"
 
 #Display last log
 echo " "
-echo "	Last logged message =>"
+echo "	Tail end of log =>"
 if [ -f "$log/templater.log" ]; then
-   cat "$log/templater.log" | grep "." | tail -1
+   cat "$log/templater.log" | grep "." | tail -5 | sed 's/^/        /'
 else 
    echo "		[Empty Log]"
 fi
@@ -213,10 +214,7 @@ fi
 echo " "
 echo "	Last reported error =>"
 if [ -s "$log/templater.err" ]; then
-    cat "$log/templater.err" | grep "." | tail -1
+    cat "$log/templater.err" | grep "." | tail -1 | sed 's/^/        /'
 else
     echo "		[No Errors]"
 fi
-
-echo ""
-echo ""
