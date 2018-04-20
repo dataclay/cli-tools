@@ -2,54 +2,56 @@
 
 show_usage() {
 
-echo -e "\n\n	\033[1mTemplater Launcher for OSX from Dataclay\033[0m\n"
+echo -e "\n\n   \033[1mTemplater Launcher for OSX from Dataclay\033[0m\n"
 cat << EOF
 
-	Desc:
+    Desc:
 
-		Launches Templater for Adobe After Effects
-		from the command line.  A supported version of
-		After Effects is required to be installed on this 
-		machine for this launcher to work properly.  Python 
- 		scripting language should be installed as well.
+        Launches Templater for Adobe After Effects
+        from the command line.  A supported version of
+        After Effects is required to be installed on this 
+        machine for this launcher to work properly.  Python 
+        scripting language should be installed as well.
 
-	Usage:
+    Usage:
 
-		templater.sh -v 'version_string' [-ui] [-m]
+        templater.sh -v 'version_string' [-ui] [-m]
 
-	Options:
+    Options:
 
-		-v | --version
-		The version of Adobe After Effects you want to use
-		with Templater, where 'version_string' can be any of
-		the following:
-		'CC 2018' 'CC 2017' 'CC 2015.3' 'CC 2015' 'CC 2014' 'CC' 'CS6' 'CS5.5' 'CS5'
+        -v | --version
+        The version of Adobe After Effects you want to use
+        with Templater, where 'version_string' can be any of
+        the following:
+        'CC 2018' 'CC 2017' 'CC 2015.3' 'CC 2015' 'CC 2014' 'CC' 'CS6' 'CS5.5' 'CS5'
 
-		-ui 
-		If specified, Adobe After Effects will launch with its
-		graphical user interface
+        -ui 
+        If specified, Adobe After Effects will launch with its
+        graphical user interface
 
-		-m
-		If included, this causes After Effects to launch as a new,
-		seperate, process.  This is useful if you want to simultaneously
-		execute two or more versioning jobs with Templater.
+        -m
+        If included, this causes After Effects to launch as a new,
+        seperate, process.  This is useful if you want to simultaneously
+        execute two or more versioning jobs with Templater.
 
-	Examples:
+    Examples:
 
-		Launch without AE user interface
-		  
-		  $ templater.sh -v 'CC 2018'
-		  $ templater.sh -v 'CS5'
-		
-		
-		Launch with AE user interface
-		  
-		  $ templater.sh -v 'CC 2018' -ui
-		  $ templater.sh -v 'CS5' -ui
+        Launch without AE user interface
+          
+          $ templater.sh -v 'CC 2018'
+          $ templater.sh -v 'CS5'
+        
+        
+        Launch with AE user interface
+          
+          $ templater.sh -v 'CC 2018' -ui
+          $ templater.sh -v 'CS5' -ui
 
-		Launch new instance of AE without user interface
 
-		  $ templater.sh -v 'CC 2018' -m
+        Launch new instance of AE without user interface
+
+          $ templater.sh -v 'CC 2018' -m
+
 
 EOF
 }
@@ -62,29 +64,29 @@ new_instance=" "
 #Parse arguments from command line
 while :; do
     case $1 in
-        -h|-\?|--help)   # Documentation / Usage Statement
+    -h|-\?|--help)   # Documentation / Usage Statement
             show_usage
             exit
             ;;
-	-v | --version)
-	   if [ -n "$2" ]; then
+    -v | --version)
+       if [ -n "$2" ]; then
                 version=$2
                 shift
             else
                 printf '\nTemplater CLI Launch Error: --version or -v option requires a non-empty argument.\n'
                 printf '                            Use any one of the following arguments for the -v option\n'
-                printf '                            \"CC 2018\", \"CC 2017\", \"CC 2015.3\", \"CC 2015\", \"CC 2014\", \"CC\", \"CS6\", \"CS5.5\", \"CS5\"\n\n'
+                printf '                            \"CC 2018\", \"CC 2017\", \"CC 2015.3\", \"CC 2015\", \"CC 2014\" \"CC\", \"CS6\", \"CS5.5\", \"CS5\"\n\n'
                 printf 'Use --help option to see description and usage examples\n\n'
                 exit 1
             fi 
-	    ;;
+        ;;
         -ui)
             ui=" "
             ;;
         -m)
-	    new_instance="-m" 
-	    ;;
-	--) # End of all options.
+        new_instance="-m" 
+        ;;
+    --) # End of all options.
             shift
             break
             ;;
@@ -137,33 +139,33 @@ row_end=$(get_conf row_end)
 pfx=$(get_conf output_prefix)
 
 if [ "$log" == "" ] || [ "$log" == " " ]; then
-	log=/private${TMPDIR}TemporaryItems
+    log=/private${TMPDIR}TemporaryItems
 fi
 
 read -r -d '' header << EOM
 -----
 
-	* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
-	*                                                               *   
-	*            Templater CLI Launcher for OSX Terminal            *   
-	*                                                               *   
-	* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+    * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+    *                                                               *
+    *       Templater CLI Launcher for OSX or macOS Terminal        *
+    *                                                               *
+    * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-	Application Version =>
-		Adobe After Effects $version
+    Application Version =>
+        Adobe After Effects $version
 
-	CLI Configuration File =>
-		$PWD/templater-options.json
+    CLI Configuration File =>
+        $PWD/templater-options.json
 
-	Using the following configuration =>
-		Log Directory      => $log
-		AE Project         => $aep
-		Versioning Data    => $data_src
-		Footage directory  => $ftg_dir
-		Output directory   => $output_dir
-		Output Module      => $output_mod
-		Output Prefix      => $pfx
-		Task Range         => $row_start through $row_end
+    Using the following configuration =>
+        Log Directory      => $log
+        AE Project         => $aep
+        Versioning Data    => $data_src
+        Footage directory  => $ftg_dir
+        Output directory   => $output_dir
+        Output Module      => $output_mod
+        Output Prefix      => $pfx
+        Task Range         => $row_start through $row_end
         Preferences        => $prefs
 EOM
 
@@ -171,14 +173,14 @@ echo "$header"
 
 #Copy application jsxbin to project directory from After Effects app directory
 echo ""
-echo "	Initializing Project Directory =>"
-echo "		Copying Templater Runtime"
+echo "  Initializing Project Directory =>"
+echo "      Copying Templater Runtime"
 cp -v "$app_dir$panels$templater_filename" "$PWD/$templater_filename" | sed 's/^/        /'
 
 #Magical osascript block to invoke After Effects!
 echo ""
-echo "	Invoking Adobe After Effects $version using command =>"
-echo "		open -a 'Adobe After Effects $version' --args $ui $new_instance"
+echo "  Invoking Adobe After Effects $version using command =>"
+echo "      open -a 'Adobe After Effects $version' --args $ui $new_instance"
 sleep 4
 ae_app="Adobe After Effects $version"
 open -a "$ae_app" --args $ui $new_instance
@@ -193,28 +195,28 @@ end tell
 EOM
 
 echo ""
-echo "	Now performing tasks in Adobe After Effects $version.  Please wait..."
+echo "  Now performing tasks in Adobe After Effects $version.  Please wait..."
 osascript -e "$ae_proc" | sed 's/^/        After Effects Process return code => /'
 echo ""
 
-echo "	Templater messages and errors logged to =>"
-echo "		$log/templater.log"
-echo "		$log/templater.err"
+echo "  Templater messages and errors logged to =>"
+echo "      $log/templater.log"
+echo "      $log/templater.err"
 
 #Display last log
 echo " "
-echo "	Tail end of log =>"
+echo "  Tail end of log =>"
 if [ -f "$log/templater.log" ]; then
    cat "$log/templater.log" | grep "." | tail -5 | sed 's/^/        /'
 else 
-   echo "		[Empty Log]"
+   echo "       [Empty Log]"
 fi
 
 #Display last error
 echo " "
-echo "	Last reported error =>"
+echo "  Last reported error =>"
 if [ -s "$log/templater.err" ]; then
     cat "$log/templater.err" | grep "." | tail -1 | sed 's/^/        /'
 else
-    echo "		[No Errors]"
+    echo "      [No Errors]"
 fi

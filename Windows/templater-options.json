@@ -1,50 +1,77 @@
 {
-    "log_location"          : "C:\\path\\to\\the\\folder\\for\\your\\logs",
-    "data_source"           : "http://url.to.google/sheet or C:\\path\\to\\tabbed\\delimited\\file",
-    "aep"                   : "C:\\path\\to\\aep\\for\\versioning.aep",
-    "source_footage"        : "C:\\path\\to\\folder\\containing\\referenced\\footage",
-    "output_location"       : "C:\\path\\to\\where\\templater\\should\\write\\output",
-    "render_settings"       : "Draft Settings",
-    "output_module"         : "AVI DV NTSC 48kHz",
-    "output_prefix"         : "cli_test",
-    "row_start"             : 2,
-    "row_end"               : 9,
-    "prefs"                 : {
-                                "default_target"          : "name-of-comp-to-render",
-                                "tsv_from_excel"          : true,
-                                "replica_comps_to_queue"  : true,
-                                "replica_comps_to_ame"    : false,
-                                "remove_replicas_ame"     : false,
-                                "fix_layer_exp"           : false,
-                                "missing_footage"         : 3,
-                                "placeholder_visual"      : "C:\\path\\to\\a\\branded\\placeholder\\file.png",
-                                "placeholder_audio"       : "C:\\path\\to\\a\\default\\audio\\file.wav",
-                                "unique_downloads"        : false,
-                                "bot"                     : {
-                                                                "name"             : "",
-                                                                "goog_freq"        : 5,
-                                                                "post_cmd_job"     : "",
-                                                                "post_cmd_batch"   : "",
-                                                                "shutdown_cmd"     : "",
-                                                                "max_queued"       : 20,
-                                                                "job_detail_args"  : false,
-                                                                "action_render"    : true,
-                                                                "action_replicate" : false
-                                                            },
-                                "remote_json"             : {
-                                                                "username" : "",
-                                                                "password" : "",
-                                                                "headers"  : { }
-                                                            }
-                              },
-    "tasks"                 : {
-                                "render"         : true,
-                                "replicate"      : false,
-                                "bot_enable"     : false,
-                                "bot_deactivate" : false,
-                                "bot_activate"   : false
-                              },
-    "save_on_completion"    : false,
-    "quit_on_completion"    : true,
-    "quit_on_errors"        : [ ]
+      "log_location"          : "C:\\path\\to\\the\\folder\\for\\your\\logs"
+    , "data_source"           : "http://url.to.google/sheet or C:\\path\\to\\tabbed\\delimited\\file"
+    , "aep"                   : "C:\\path\\to\\aep\\for\\versioning.aep"
+    , "source_footage"        : "C:\\path\\to\\folder\\containing\\referenced\\footage"
+    , "output_location"       : "C:\\path\\to\\where\\templater\\should\\write\\output"
+    , "render_settings"       : "Draft Settings"
+    , "output_module"         : "AVI DV NTSC 48kHz"
+    , "output_prefix"         : "cli_test"
+    , "row_start"             : 2
+    , "row_end"               : 9
+    , "save_on_completion"    : false
+    , "quit_on_completion"    : true
+    , "quit_on_errors"        : []
+    , "tasks"                 : {
+                                     "render"         : true
+                                   , "replicate"      : false
+                                   , "bot_enable"     : false
+                                   , "bot_deactivate" : false  //Deprecated in Templater version 2.6.0 
+                                   , "bot_activate"   : false  //Deprecated in Templater version 2.6.0
+                                }
+    , "prefs"                 : {
+                                     "default_target"          : "name-of-comp-to-render"
+                                   , "tsv_from_excel"          : true
+                                   , "replica_comps_to_queue"  : true
+                                   , "replica_comps_to_ame"    : false
+                                   , "remove_replicas_ame"     : false
+                                   , "fix_layer_exp"           : false
+                                   , "missing_footage"         : 3
+                                   , "placeholder_visual"      : "C:\\path\\to\\a\\branded\\placeholder\\file.png"
+                                   , "placeholder_audio"       : "C:\\path\\to\\a\\default\\audio\\file.wav"
+                                   , "unique_downloads"        : false
+                                   , "suppress_ae_dialogs"     : true
+                                   , "silence_logging"         : false
+                                   , "purge_caches"            : false
+                                   , "remote_json"             : {
+                                                                      "username" : ""
+                                                                    , "password" : ""
+                                                                    , "headers"  : {
+                                                                                        "header1" : "header 1 value"
+                                                                                      , "header2" : "header 2 value"
+                                                                                   }
+                                                                 }
+                                   , "bot" : {
+                                                  "name"             : ""
+                                                , "goog_freq"        : 3
+                                                , "json_freq"        : 1
+                                                , "max_queued"       : 20
+                                                , "action_render"    : true
+                                                , "action_replicate" : false
+                                                , "pre_cmd_data"     : ""
+                                                , "pre_jsx_data"     : ""
+                                                , "pre_cmd_batch"    : ""
+                                                , "pre_jsx_batch"    : ""
+                                                , "pre_cmd_job"      : "C:\\path\\to\\shell-script\\executed\\after\\job\\completes.bat $and $arguments $here"
+                                                , "pre_jsx_job"      : "C:\\path\\to\\ExtendScript\\executed\\after\\job\\completes.jsx"
+                                                , "pre_cmd_update"   : ""
+                                                , "pre_jsx_update"   : ""
+                                                , "pre_cmd_output"   : ""
+                                                , "pre_jsx_output"   : ""
+                                                , "post_cmd_data"    : ""
+                                                , "post_jsx_data"    : ""
+                                                , "post_cmd_batch"   : ""
+                                                , "post_jsx_batch"   : ""
+                                                , "post_cmd_job"     : ""
+                                                , "post_jsx_job"     : ""
+                                                , "post_cmd_update"  : ""
+                                                , "post_jsx_update"  : ""
+                                                , "post_cmd_output"  : ""
+                                                , "post_jsx_output"  : ""
+                                                , "enable_cmd"       : ""
+                                                , "enable_jsx"       : ""
+                                                , "shutdown_cmd"     : ""
+                                                , "shutdown_jsx"     : ""
+                                             }
+                                }
 }

@@ -178,10 +178,10 @@ if ([string]::IsNullorWhitespace($log_path)) {
 `t`t`t$log_path\templater.log
 `t`t`t$log_path\templater.err
 
-`t`tLast logged message =>
+`t`tTail end of log =>
 "
 if (Test-Path "$log_path\templater.log"){
-    Get-Content "$log_path\templater.log" | Select-Object -last 1
+    Get-Content "$log_path\templater.log" | Select-Object -last 5
 } else {
     "`t`t`t[No log messages]"
 }
