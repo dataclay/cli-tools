@@ -16,8 +16,6 @@
                                      "render"         : true
                                    , "replicate"      : false
                                    , "bot_enable"     : false
-                                   , "bot_deactivate" : false  //Deprecated in Templater version 2.6.0 
-                                   , "bot_activate"   : false  //Deprecated in Templater version 2.6.0
                                 }
     , "prefs"                 : {
                                      "default_target"          : "name-of-comp-to-render"
