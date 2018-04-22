@@ -104,15 +104,14 @@ For example, assuming your file system has a directory named `WeatherForecast` c
 	>```
 	>iMac:WeatherForecast dataclay$ templater.sh -v 'CC 2018' 
 	>```
-    &nbsp;
+
 
     >#### NOTE
     >If the launcher file does not execute, you may need to set its permissions.  On OSX, you can use `sudo chmod u+x templater.sh` to ensure `templater.sh` is executable for the current user.  On Windows, use the "Security" tab in the `File Properties` dialog to change the permissions of `templater.ps1` for the current user. 
 
-&nbsp;
 
 4. Wait for Templater to configure according to the `templater-options.json` file and complete its versioning tasks with After Effects.
-5. After processing is complete, the launcher script displays the last message logged to `templater.log` as well as the last reported error as found in `templater.err`.
+5. After processing is complete, the launcher script displays the last five messages logged to `templater.log` as well as the last reported error as found in `templater.err`.
 6. Begin troubleshooting if the desired output is not found.  You should verify configuration in the `templater-options.json` file, and then inspect the `templater.log` and `templater.err` files to learn more about any issues Templater reports.  Refer to *Troubleshooting the Templater CLI* below for more information.
 
 &nbsp;
@@ -121,34 +120,34 @@ Use `.\templater.ps1 -h` on Windows or `./templater.sh -h` on OSX to see informa
 ```
 	Templater Launcher from Dataclay
 
-	Desc:
+    Desc:
 
-      Launches Templater for Adobe After Effects
-      from the command line.  A supported version of
-      After Effects is required to be installed on this
-      machine for this launcher to work properly.
+        Launches Templater for Adobe After Effects
+        from the command line.  A supported version of
+        After Effects is required to be installed on this
+        machine for this launcher to work properly.
 
-   Usage:
+     Usage:
 
-      .\templater.ps1 [-h] -v 'ae_version_string' [-ui] [-m]
+        .\templater.ps1 [-h] -v 'ae_version_string' [-ui] [-m]
 
-   Options:
+    Options:
 
-      -h
-      Shows this documentation
+        -h
+        Shows this documentation
 
-      -v | --version 'ae_version_string'
-      The version of AE you want to use with Templater,
-      where 'version_string' can be any of the following:
-      'CC 2018' 'CC 2017' 'CC 2015.3' 'CC 2015' 'CC 2014' 'CC' 'CS6' 'CS5.5' 'CS5'.
+        -v | --version 'ae_version_string'
+        The version of AE you want to use with Templater,
+        where 'version_string' can be any of the following:
+        'CC 2018' 'CC 2017' 'CC 2015.3' 'CC 2015' 'CC 2014' 'CC' 'CS6' 'CS5.5' 'CS5'
 
-      -ui
-      When used, Adobe After Effects launches with a user interface
+        -ui
+        When used, Adobe After Effects launches with a user interface
 
-      -m
-      If included, this causes AE to launch as a new, seperate,
-      process.  This is useful if you want to simultaneously
-      execute two or more versioning jobs with Templater.
+        -m
+        If included, this causes AE to launch as a new, seperate,
+        process.  This is useful if you want to simultaneously
+        execute two or more versioning jobs with Templater.
 
     Examples:
 
@@ -165,7 +164,6 @@ Use `.\templater.ps1 -h` on Windows or `./templater.sh -h` on OSX to see informa
         Launch new instance of AE without its user interface
 
           > .\templater.ps1 -v 'CC 2018' -m
-```
 
 &nbsp;
 ## Troubleshooting the Templater CLI
@@ -192,6 +190,7 @@ The following is an example of an error object that is output to `templater.err`
 >|----------:|:-------------------------------------|
 >| 1          | Error starting Templater application |
 >| 2          | Error initializing Templater CLI |
+>| 3	    | Error reading external file |
 >| 1001    | Error swapping footage source                                       |
 >| 1002    | Error downloading remote footage source                                       |
 >| 1003    | Could not find the footage file in network |
