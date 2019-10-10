@@ -31,6 +31,8 @@
                                    , "suppress_ae_dialogs"     : true
                                    , "silence_logging"         : false
                                    , "purge_caches"            : false
+                                   , "import_data_as_json"     : false
+                                   , "empty_is_faulty"         : true
                                    , "remote_json"             : {
                                                                       "username" : ""
                                                                     , "password" : ""
@@ -40,36 +42,60 @@
                                                                                    }
                                                                  }
                                    , "bot" : {
-                                                  "name"             : ""
-                                                , "goog_freq"        : 3
-                                                , "json_freq"        : 1
-                                                , "max_queued"       : 20
-                                                , "action_render"    : true
-                                                , "action_replicate" : false
-                                                , "pre_cmd_data"     : ""
-                                                , "pre_jsx_data"     : ""
-                                                , "pre_cmd_batch"    : ""
-                                                , "pre_jsx_batch"    : ""
-                                                , "pre_cmd_job"      : "C:\\path\\to\\shell-script\\executed\\after\\job\\completes.bat $and $arguments $here"
-                                                , "pre_jsx_job"      : "C:\\path\\to\\ExtendScript\\executed\\after\\job\\completes.jsx"
-                                                , "pre_cmd_update"   : ""
-                                                , "pre_jsx_update"   : ""
-                                                , "pre_cmd_output"   : ""
-                                                , "pre_jsx_output"   : ""
-                                                , "post_cmd_data"    : ""
-                                                , "post_jsx_data"    : ""
-                                                , "post_cmd_batch"   : ""
-                                                , "post_jsx_batch"   : ""
-                                                , "post_cmd_job"     : ""
-                                                , "post_jsx_job"     : ""
-                                                , "post_cmd_update"  : ""
-                                                , "post_jsx_update"  : ""
-                                                , "post_cmd_output"  : ""
-                                                , "post_jsx_output"  : ""
-                                                , "enable_cmd"       : ""
-                                                , "enable_jsx"       : ""
-                                                , "shutdown_cmd"     : ""
-                                                , "shutdown_jsx"     : ""
+                                                  "name"                  : ""
+                                                , "goog_freq"             : 3
+                                                , "json_freq"             : 1
+                                                , "max_queued"            : 20
+                                                , "action_render"         : true
+                                                , "action_replicate"      : false
+
+                                                , "pre_cmd_data"          : ""
+                                                , "pre_cmd_data_async"    : false
+                                                , "pre_jsx_data"          : ""
+
+                                                , "pre_cmd_batch"         : ""
+                                                , "pre_cmd_batch_async"   : false
+                                                , "pre_jsx_batch"         : ""
+
+                                                , "pre_cmd_job"           : "C:\\path\\to\\shell-script\\executed\\after\\job\\completes.bat $and $arguments $here"
+                                                , "pre_cmd_job_async"     : false
+                                                , "pre_jsx_job"           : "C:\\path\\to\\ExtendScript\\executed\\after\\job\\completes.jsx"
+
+                                                , "pre_cmd_update"        : ""
+                                                , "pre_cmd_update_async"  : false
+                                                , "pre_jsx_update"        : ""
+
+                                                , "pre_cmd_output"        : ""
+                                                , "pre_cmd_output_async"  : false
+                                                , "pre_jsx_output"        : ""
+
+                                                , "post_cmd_data"         : ""
+                                                , "post_cmd_data_async"   : false
+                                                , "post_jsx_data"         : ""
+
+                                                , "post_cmd_batch"        : ""
+                                                , "post_cmd_batch_async"  : false
+                                                , "post_jsx_batch"        : ""
+
+                                                , "post_cmd_job"          : ""
+                                                , "post_cmd_job_async"    : false
+                                                , "post_jsx_job"          : ""
+
+                                                , "post_cmd_update"       : ""
+                                                , "post_cmd_update_async" : false
+                                                , "post_jsx_update"       : ""
+
+                                                , "post_cmd_output"       : ""
+                                                , "post_cmd_output_async" : false
+                                                , "post_jsx_output"       : ""
+
+                                                , "enable_cmd"            : ""
+                                                , "enable_cmd_async"      : false
+                                                , "enable_jsx"            : ""
+
+                                                , "shutdown_cmd"          : ""
+                                                , "shutdown_cmd_async"    : false
+                                                , "shutdown_jsx"          : ""
                                              }
                                 }
 }
