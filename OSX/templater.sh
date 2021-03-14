@@ -30,7 +30,8 @@ cat << EOF
 
         -ui 
         If specified, Adobe After Effects will launch with its
-        graphical user interface
+        graphical user interface.  Required if you want to use
+        Templater Bot functionality.
 
         -m
         If included, this causes After Effects to launch as a new,
@@ -120,13 +121,12 @@ panels="/Scripts/ScriptUI Panels/"
 templater_filename="Templater 2.jsxbin"
 
 #Retrieve the latest Templater runtime from targeted AE version
+IFS='/'
 templater_runtimes=("$app_dir$panels"Templater*)
 runtimes=()
-
 for i in "${templater_runtimes[@]}"
 do
     :
-    IFS='/'
     read -a strarr <<< "$i"
     runtimes+=("${strarr[${#strarr[@]} -1 ]:10:1}")
 done
@@ -134,7 +134,7 @@ ver=${runtimes[0]}
 for n in "${runtimes[@]}" ; do
     ((n > ver)) && ver=$n
 done
-
+IFS=' '
 templater_filename="Templater ${ver}.jsxbin"
 
 #Parse templater-options.json found in running directory
@@ -153,6 +153,8 @@ EOM
 echo $(python -c "$get_cli_conf")
 
 }
+
+echo $(get_conf log_location)
 
 log=$(get_conf log_location)
 aep=$(get_conf aep)
@@ -226,16 +228,16 @@ osascript -e "$ae_proc" | sed 's/^/        After Effects Process return code => 
 echo ""
 
 echo "  Templater messages and errors logged to =>"
-echo "      $log/templater.log"
-echo "      $log/templater.err"
+echo "      ${log}/templater.log"
+echo "      ${log}/templater.err"
 
 #Display last log
 echo " "
 echo "  Tail end of log =>"
 if [ -f "$log/templater.log" ]; then
-   cat "$log/templater.log" | grep "." | tail -5 | sed 's/^/        /'
+    cat "$log/templater.log" | grep "." | tail -5 | sed 's/^/        /'
 else 
-   echo "       [Empty Log]"
+    echo "      [Empty Log]"
 fi
 
 #Display last error
