@@ -126,7 +126,9 @@ foreach ($panel_file in $panel_paths) {
     $panel_versions += ($path_arr[$path_arr.count -1].Substring(10,1))
 }
 $latest_panel_version = ($panel_versions | Measure-Object -Max).Maximum;
-$templater_panel="$panels\Templater $latest_panel_version.jsxbin"
+
+$templater_filename ="Templater $latest_panel_version.jsxbin"
+$templater_panel="$panels\$templater_filename"
 
 "`t`t* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
 `t`t*                                                               *
