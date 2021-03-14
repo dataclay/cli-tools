@@ -34,7 +34,8 @@ $usage = @'
 
         -ui 
         If specified, Adobe After Effects will launch with its
-        graphical user interface
+        graphical user interface.  Required if you want to use 
+        Templater Bot functionality.
 
         -m
         If included, this causes AE to launch as a new, seperate,
