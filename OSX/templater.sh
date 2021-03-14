@@ -10,8 +10,11 @@ cat << EOF
         Launches Templater for Adobe After Effects
         from the command line.  A supported version of
         After Effects is required to be installed on this 
-        machine for this launcher to work properly.  Python 
-        scripting language should be installed as well.
+        machine for this launcher to work properly.  This
+        launcher will always use the latest version of the
+        Templater runtime file installed in the targeted
+        After Effects version.  Python scripting language 
+        should be installed as well.
 
     Usage:
 
@@ -115,6 +118,24 @@ fi
 app_dir="/Applications/Adobe After Effects $version"
 panels="/Scripts/ScriptUI Panels/"
 templater_filename="Templater 2.jsxbin"
+
+#Retrieve the latest Templater runtime from targeted AE version
+templater_runtimes=("$app_dir$panels"Templater*)
+runtimes=()
+
+for i in "${templater_runtimes[@]}"
+do
+    :
+    IFS='/'
+    read -a strarr <<< "$i"
+    runtimes+=("${strarr[${#strarr[@]} -1 ]:10:1}")
+done
+ver=${runtimes[0]}
+for n in "${runtimes[@]}" ; do
+    ((n > ver)) && ver=$n
+done
+
+templater_filename="Templater ${ver}.jsxbin"
 
 #Parse templater-options.json found in running directory
 #NOTE: Requires python installed on environment

@@ -11,9 +11,12 @@ $usage = @'
     Desc:   
 
         Launches Templater for Adobe After Effects
-        from the command line.  A supported version of
-        After Effects is required to be installed on this 
-        machine for this launcher to work properly.
+        from the command line.  The launcher always 
+        uses the latest Templater runtime installed to
+        the targeted version of After Effects. A supported
+        version of After Effects is required to be
+        installed on this machine for this launcher
+        to work properly.
 
     Usage:
 
@@ -113,8 +116,16 @@ if (Test-Path "$PSScriptRoot\templater-options.json"){
 
 $app_dir="C:\Program Files\Adobe\Adobe After Effects $v\Support Files"
 $panels="$app_dir\Scripts\ScriptUI Panels"
-$templater_filename="Templater 2.jsxbin"
-$templater_panel="$panels\$templater_filename"
+
+#Retrieve the latest Templater runtime from targeted AE version
+$panel_paths = (Get-ChildItem -Path "$panels\Templater*").FullName
+$panel_versions = @()
+foreach ($panel_file in $panel_paths) {
+    $path_arr = $panel_file.split('\')
+    $panel_versions += ($path_arr[$path_arr.count -1].Substring(10,1))
+}
+$latest_panel_version = ($panel_versions | Measure-Object -Max).Maximum;
+$templater_panel="$panels\Templater $latest_panel_version.jsxbin"
 
 "`t`t* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
 `t`t*                                                               *
