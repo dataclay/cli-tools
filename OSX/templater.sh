@@ -141,16 +141,17 @@ templater_filename="Templater ${ver}.jsxbin"
 #NOTE: Requires python installed on environment
 get_conf () {
     read -r -d '' get_cli_conf << EOM
+from __future__ import print_function
 import sys 
 import json
 with open("$PWD/templater-options.json") as f:
     read_data = f.read()
 f.closed
 cli_opts = json.loads(read_data)
-print  cli_opts["$1"]
+print(cli_opts["$1"])
 EOM
 
-echo $(python -c "$get_cli_conf")
+echo "$(python -c "$get_cli_conf")"
 
 }
 
