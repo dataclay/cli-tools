@@ -5,7 +5,7 @@ Templater ships with command line interface (CLI) control only in the Bot editio
 ## Requirements for running the Templater CLI
 
 ### System Requirements
-As of Templater version 2.1.8 users should invoke the Templater CLI via the `templater.ps1` file on Windows and `templater.sh` file on OSX.  Prior to Templater 2.1.8, the launcher script was written as a Microsoft Batch script for Windows, and an AppleScript file for OSX.  These have been deprecated and are no longer supported.  
+As of Templater version 2.1.8 users should invoke the Templater CLI via the `templater.ps1` file on Windows and `templater.sh` file on macOS.  Prior to Templater 2.1.8, the launcher script was written as a Microsoft Batch script for Windows, and an AppleScript file for macOS.  These have been deprecated and are no longer supported.  
 
 >#### Windows Environment
 > + Windows PowerShell.  Users should have privileges to run PowerShell scripts from the PowerShell prompt.
@@ -18,7 +18,7 @@ To version an After Effects project with Templater's command line interface, you
 
 *	An Adobe After Effects project file that is already rigged for Templater.  The project file should open within After Effects without displaying any error dialogs related to missing dependencies such as fonts, footage sources, etc.
 *	A [`templater-options.json`](https://github.com/dataclay/cli-tools/blob/master/Windows/templater-options.json) file that specifies Templater's configuration and options in JSON format
-*	The CLI launcher script—either [`templater.ps1`](https://github.com/dataclay/cli-tools/tree/master/Windows/templater.ps1) for Windows Powershell or [`templater.sh`](https://github.com/dataclay/cli-tools/tree/master/OSX/templater.sh) provided for OSX Terminal.
+*	The CLI launcher script—either [`templater.ps1`](https://github.com/dataclay/cli-tools/tree/master/Windows/templater.ps1) for Windows Powershell or [`templater.sh`](https://github.com/dataclay/cli-tools/tree/master/OSX/templater.sh) provided for macOS Terminal.
 
 On Windows, for example, a directory listing of a weather forecast project should include the following files at a bare minimum:
 
@@ -28,7 +28,7 @@ C:\Templates\WeatherForecast
 	templater-options.json
   	templater.ps1
 ```
-On OSX, the same weather forecast project directory listing should include the following:
+On macOS, the same weather forecast project directory listing should include the following:
 
 ```
 ~/Templates/WeatherForecast
@@ -46,7 +46,7 @@ Note that on Windows, paths specified within the configuration file must be ente
 	
 	C:\\Templates\\Styles\\Modern\\WeatherForecast.aep
 
-While paths on OSX must be entered with the forward slash. 
+While paths on macOS must be entered with the forward slash. 
 	
 	/Users/dataclay/Templates/Styles/Modern/WeatherForecast.aep
 	
@@ -91,15 +91,15 @@ Start Templater from the command line by entering the name of the launcher scrip
 
 For example, assuming your file system has a directory named `WeatherForecast` containing the required files as listed in [Requirements for running the Templater CLI](#requirements), and that the environment is running Adobe After Effects CC 2015, you would follow these steps to invoke Templater from the command line:
 
-1. On Windows, start a new Powershell terminal.  On OSX, start a new terminal session.
-2. Change into the `WeatherForecast` directory.  On Windows, use `cd C:\Templater\WeatherForecast`.  On OSX, use `cd ~/Templates/WeatherForecast` 
+1. On Windows, start a new Powershell terminal.  On macOS, start a new terminal session.
+2. Change into the `WeatherForecast` directory.  On Windows, use `cd C:\Templater\WeatherForecast`.  On macOS, use `cd ~/Templates/WeatherForecast` 
 3. On Windows, at the Powershell prompt `>`, enter the following:
 
 	>```
 	>PS C:\Templates\WeatherForecast> .\templater.ps1 -v 'CC 2018'
 	>```
 	
-	On OSX, at the Terminal prompt `$`, enter the following:
+	On macOS, at the Terminal prompt `$`, enter the following:
 	
 	>```
 	>iMac:WeatherForecast dataclay$ templater.sh -v 'CC 2018' 
@@ -107,7 +107,7 @@ For example, assuming your file system has a directory named `WeatherForecast` c
 
 
     >#### NOTE
-    >If the launcher file does not execute, you may need to set its permissions.  On OSX, you can use `sudo chmod u+x templater.sh` to ensure `templater.sh` is executable for the current user.  On Windows, use the "Security" tab in the `File Properties` dialog to change the permissions of `templater.ps1` for the current user. 
+    >If the launcher file does not execute, you may need to set its permissions.  On macOS, you can use `sudo chmod u+x templater.sh` to ensure `templater.sh` is executable for the current user.  On Windows, use the "Security" tab in the `File Properties` dialog to change the permissions of `templater.ps1` for the current user. 
 
 
 4. Wait for Templater to configure according to the `templater-options.json` file and complete its versioning tasks with After Effects.
@@ -116,7 +116,7 @@ For example, assuming your file system has a directory named `WeatherForecast` c
 
 &nbsp;
 ### Templater Launcher Tool Help
-Use `.\templater.ps1 -h` on Windows or `./templater.sh -h` on OSX to see information about options and arguments.  The following shows the help as it appears in Windows PowerShell.
+Use `.\templater.ps1 -h` on Windows or `./templater.sh -h` on macOS to see information about options and arguments.  The following shows the help as it appears in Windows PowerShell.
 
     Templater Launcher from Dataclay
 
