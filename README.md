@@ -10,8 +10,8 @@ As of Templater version 2.1.8 users should invoke the Templater CLI via the `tem
 >#### Windows Environment
 > + Windows PowerShell.  Users should have privileges to run PowerShell scripts from the PowerShell prompt.
 
->#### OSX Environments
->+ Python—version 2.6 or later.  All recent versions of OSX already come bundled with Python.  Enter `python --version` at a new terminal prompt to verify installation—if you see a version number, Python is installed and ready.
+>#### macOS Environments
+>+ Python—version 2.6 or later.  All recent versions of macOS already come bundled with Python.  Enter `python --version` at a new terminal prompt to verify installation—if you see a version number, Python is installed and ready.
 
 ### Project Requirements
 To version an After Effects project with Templater's command line interface, you should first have the following required resources within your project's working directory:
