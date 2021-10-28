@@ -139,7 +139,8 @@ Use `.\templater.ps1 -h` on Windows or `./templater.sh -h` on macOS to see infor
         -v | --version 'ae_version_string'
         The version of AE you want to use with Templater,
         where 'version_string' can be any of the following:
-        '2022' '2021' '2020' 'CC 2019' 'CC 2018' 'CC 2017' 'CC 2015.3' 'CC 2015' 'CC 2014' 'CC' 'CS6' 'CS5.5' 'CS5'
+        '2022' '2021' '2020' 'CC 2019' 'CC 2018' 'CC 2017' 
+        'CC 2015.3' 'CC 2015' 'CC 2014' 'CC' 'CS6' 'CS5.5' 'CS5'
 
         -ui
         When used, Adobe After Effects launches with a user interface
