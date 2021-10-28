@@ -26,7 +26,7 @@ cat << EOF
         The version of Adobe After Effects you want to use
         with Templater, where 'version_string' can be any of
         the following:
-        '2021' '2020' 'CC 2019' 'CC 2018' 'CC 2017' 'CC 2015.3' 'CC 2015' 'CC 2014' 'CC' 'CS6' 'CS5.5' 'CS5'
+        '2022' '2021' '2020' 'CC 2019' 'CC 2018' 'CC 2017' 'CC 2015.3' 'CC 2015' 'CC 2014' 'CC' 'CS6' 'CS5.5' 'CS5'
 
         -ui 
         If specified, Adobe After Effects will launch with its
@@ -42,24 +42,22 @@ cat << EOF
 
         Launch without AE user interface
           
-          $ templater.sh -v '2021'
-          $ templater.sh -v '2020'
+          $ templater.sh -v '2022'
           $ templater.sh -v 'CC 2019'
           $ templater.sh -v 'CS5'
         
         
         Launch with AE user interface
           
-          $ templater.sh -v '2021' -ui
-          $ templater.sh -v '2020' -ui
+          $ templater.sh -v '2022' -ui
           $ templater.sh -v 'CC 2019' -ui
           $ templater.sh -v 'CS5' -ui
 
 
         Launch new instance of AE without user interface
 
-          $ templater.sh -v '2021' -m  
-          $ templater.sh -v '2020' -m
+          $ templater.sh -v '2022' -m  
+          $ templater.sh -v 'CC 2019' -m
 
 
 EOF
@@ -84,7 +82,7 @@ while :; do
             else
                 printf '\nTemplater CLI Launch Error: --version or -v option requires a non-empty argument.\n'
                 printf '                            Use any one of the following arguments for the -v option\n'
-                printf '                            \"2021\", \"2020\", \"CC 2019\", \"CC 2018\", \"CC 2017\", \"CC 2015.3\", \"CC 2015\", \"CC 2014\" \"CC\", \"CS6\", \"CS5.5\", \"CS5\"\n\n'
+                printf '                            \"2022\", \"2021\", \"2020\", \"CC 2019\", \"CC 2018\", \"CC 2017\", \"CC 2015.3\", \"CC 2015\", \"CC 2014\" \"CC\", \"CS6\", \"CS5.5\", \"CS5\"\n\n'
                 printf 'Use --help option to see description and usage examples\n\n'
                 exit 1
             fi 
