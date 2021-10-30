@@ -72,7 +72,7 @@ if ([string]::IsNullorWhitespace($v) -or $h -eq $true) {
 exit
 }
 
-if ($v -ne "2022" $v -ne "2021" -and $v -ne "2020" -and $v -ne "CC 2019" -and $v -ne "CC 2018" -and $v -ne "CC 2017" -and $v -ne "CC 2015.3" -and $v -ne "CC 2015" -and $v -ne "CC 2014" -and $v -ne "CC" -and $v -ne "CS6" -and $v -ne "CS5.5" -and $v -ne "CS5") {
+if ($v -ne "2022" -and $v -ne "2021" -and $v -ne "2020" -and $v -ne "CC 2019" -and $v -ne "CC 2018" -and $v -ne "CC 2017" -and $v -ne "CC 2015.3" -and $v -ne "CC 2015" -and $v -ne "CC 2014" -and $v -ne "CC" -and $v -ne "CS6" -and $v -ne "CS5.5" -and $v -ne "CS5") {
 "
 `t`tTemplater CLI Error: Please specify a valid string for the version of After Effects you want to launch. Use -h for more information.
 "
