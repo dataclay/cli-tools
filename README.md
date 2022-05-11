@@ -11,14 +11,17 @@ As of Templater version 2.1.8 users should invoke the Templater CLI via the `tem
 > + Windows PowerShell.  Users should have privileges to run PowerShell scripts from the PowerShell prompt.
 
 >#### macOS Environments
->+ Python—version 2.6 or later.  All recent versions of macOS already come bundled with Python.  Enter `python --version` at a new terminal prompt to verify installation—if you see a version number, Python is installed and ready.
+>+ Python—version 2.6 or later.  The most recent versions of macOS *do not* come bundled with Python any longer.  Enter `python --version` at a new terminal prompt to verify installation—if you see a version number, Python is installed and ready.  If you do not have Python installed, [download it](https://www.python.org/downloads/) and install it on your macOS machine.
 
 ### Project Requirements
 To version an After Effects project with Templater's command line interface, you should first have the following required resources within your project's working directory:
 
 *	An Adobe After Effects project file that is already rigged for Templater.  The project file should open within After Effects without displaying any error dialogs related to missing dependencies such as fonts, footage sources, etc.
-*	A [`templater-options.json`](https://github.com/dataclay/cli-tools/blob/master/Windows/templater-options.json) file that specifies Templater's configuration and options in JSON format
+*	A [`templater-options.json`](https://github.com/dataclay/cli-tools/blob/master/Windows/templater-options.json) file that specifies Templater's configuration and options in JSON format.
 *	The CLI launcher script—either [`templater.ps1`](https://github.com/dataclay/cli-tools/tree/master/Windows/templater.ps1) for Windows Powershell or [`templater.sh`](https://github.com/dataclay/cli-tools/tree/master/OSX/templater.sh) provided for macOS Terminal.
+
+>#### NOTE
+>The `templater-options.json` file you use for your project depends on which version of Templater you are running.  Choose the appropriate file according to your operating system and the version of Templater you are running.
 
 On Windows, for example, a directory listing of a weather forecast project should include the following files at a bare minimum:
 
@@ -57,8 +60,8 @@ The information below defines some important keys for running the CLI.  Refer to
 #### **`log_location`**  :  *string*
 >Specifies **a path to a directory** for multiple message and error log files.  Read `templater.out` when you want to inspect the log as Templater executes—for example with a command like `tail -f templater.out`.  Open `templater.log` if you need to examine the log using a standard text editor.
 
-#### **``tasks``** : object
->An object with properties that specify what you want Templater to actually do.  The values for the keys in this group should only be `true` or `false`.  For example, if you want Templater to *only* render, then set the `render` key to `true` and the others to `false`.
+#### **``tasks``** : object or array (type depends on Templater version number)
+>An object or array with properties that specify what you want Templater to actually do.  For Templater 2, the values for the keys in this group should only be `true` or `false`.  For example, if you want Templater to *only* render, then set the `render` key to `true` and the others to `false`.  For Templater 3, set the value to an an array of strings that refer to the actions you want Templater to execute.  For example, if you want Templater to *only* render, then you can set this key to a value of `["render"]`.
 
 #### **``prefs``** : object
 >A group of keys that configure Templater's preferences. 

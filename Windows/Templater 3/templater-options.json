@@ -1,0 +1,138 @@
+{
+    "log_location"          : "C:\\path\\to\\the\\folder\\for\\your\\logs"
+  , "data_source"           : "https://url.to.dataclay/que/campaign or https://url.to.google/sheet or C:\\path\\to\\tabbed\\delimited\\file"
+  , "aep"                   : "C:\\path\\to\\aep\\for\\versioning.aep"
+  , "source_footage"        : "C:\\path\\to\\folder\\containing\\referenced\\footage"
+  , "output_location"       : "C:\\path\\to\\folder\\templater\\should\\write\\output"
+  , "render_settings"       : "Draft Settings"
+  , "output_module"         : "High Quality"
+  , "output_prefix"         : "string_prefix_for_output_filenames"
+  , "row_start"             : 2
+  , "row_end"               : 7
+  , "save_on_completion"    : false
+  , "quit_on_completion"    : true
+  , "quit_on_errors"        : []
+
+  , "prefs"                 : {
+                                    "clear_prev_cache"         : false
+                                  , "default_target"           : "name-of-default-comp-to-output"
+                                  , "tsv_from_excel"           : true
+                                  , "import_data_as_json"      : false
+                                  , "replica_comps_to_queue"   : false
+                                  , "replica_comps_to_ame"     : true
+                                  , "remove_templater_effects" : false
+                                  , "fix_layer_exp"            : true
+                                  , "missing_footage"          : 3
+                                  , "placeholder_visual"       : "C:\\ProgramData\\Dataclay\\dataclay-visual-placeholder.png"
+                                  , "placeholder_audio"        : "C:\\ProgramData\\Dataclay\\dataclay-audio-placeholder.wav"
+                                  , "unique_downloads"         : false
+                                  , "empty_is_faulty"          : true
+                                  , "suppress_ae_dialogs"      : true
+                                  , "use_engine_layout"        : true
+                                  , "use_engine_time"          : true
+                                  , "silence_logging"          : false
+                                  , "purge_caches"             : false
+                                  , "purge_footage"            : true
+                                  , "remote_json"              : {
+                                                                      "username" : "" 
+                                                                    , "password" : ""
+                                                                    , "headers"  : {
+                                                                                        "header1" : "header 1 value"
+                                                                                      , "header2" : "header 2 value"
+                                                                                   }
+                                                                 }
+                                  , "spot_checking"            : {
+                                                                      "spot_samples"        : 3
+                                                                    , "on_render"           : false
+                                                                    , "on_replicate"        : false
+                                                                    , "render_settings"     : "Best Settings"
+                                                                    , "output_module"       : "Photoshop"
+                                                                 }
+                                  , "que"                      : {
+                                                                      "job_filter" :  {
+                                                                                          "id"               : ""
+                                                                                        , "status"           : ""
+                                                                                        , "properties"       : {}
+                                                                                        , "creation_start"   : ""
+                                                                                        , "creation_end"     : ""
+                                                                                        , "sort_rank"        : ["_updatedAt"]
+                                                                                        , "sort_dir"         : "DESC"
+                                                                                        , "additional_pages" : 0
+                                                                                        , "page_number"      : 1
+                                                                                        , "jobs_per_page"    : 5
+                                                                                      }
+                                                                    , "satellite" :   {
+                                                                                          "org_key"         : ""
+                                                                                        , "all_campaigns"   : true 
+                                                                                        , "output_naming"   : "override"
+                                                                                      }
+                                                                 }
+                                  , "bot"                      : {
+                                                                      "name"                 : ""
+                                                                    , "goog_freq"            : 0.3
+                                                                    , "json_freq"            : 0.3
+                                                                    , "max_queued"           : 20
+                                                                    , "action_render"        : true
+                                                                    , "action_replicate"     : false
+                                                                    , "action_spot_check"    : false
+
+                                                                    , "pre_cmd_data"          : ""
+                                                                    , "pre_cmd_data_async"    : false
+                                                                    , "pre_jsx_data"          : ""
+
+                                                                    , "pre_cmd_batch"         : ""
+                                                                    , "pre_cmd_batch_async"   : false
+                                                                    , "pre_jsx_batch"         : ""
+
+                                                                    , "pre_cmd_job"           : ""
+                                                                    , "pre_cmd_job_async"     : false
+                                                                    , "pre_jsx_job"           : ""
+
+                                                                    , "pre_cmd_update"        : ""
+                                                                    , "pre_cmd_update_async"  : false
+                                                                    , "pre_jsx_update"        : ""
+
+                                                                    , "pre_cmd_spot"          : ""
+                                                                    , "pre_cmd_spot_async"    : false
+                                                                    , "pre_jsx_spot"          : ""
+
+                                                                    , "pre_cmd_output"        : ""
+                                                                    , "pre_cmd_ouput_async"   : false
+                                                                    , "pre_jsx_output"        : ""
+
+                                                                    , "post_cmd_data"         : ""
+                                                                    , "post_cmd_data_async"   : false
+                                                                    , "post_jsx_data"         : ""
+
+                                                                    , "post_cmd_batch"        : ""
+                                                                    , "post_cmd_batch_async"  : false
+                                                                    , "post_jsx_batch"        : ""
+
+                                                                    , "post_cmd_job"          : ""
+                                                                    , "post_cmd_job_async"    : false
+                                                                    , "post_jsx_job"          : ""
+
+                                                                    , "post_cmd_update"       : ""
+                                                                    , "post_cmd_update_async" : false
+                                                                    , "post_jsx_update"       : ""
+
+                                                                    , "post_cmd_spot"         : ""
+                                                                    , "post_cmd_spot_async"   : false
+                                                                    , "post_jsx_spot"         : ""
+
+                                                                    , "post_cmd_output"       : ""
+                                                                    , "post_cmd_output_async" : false
+                                                                    , "post_jsx_output"       : ""
+
+                                                                    , "enable_cmd"            : ""
+                                                                    , "enable_cmd_async"      : false
+                                                                    , "enable_jsx"            : ""
+                                                                    
+                                                                    , "shutdown_cmd"          : ""
+                                                                    , "shutdown_cmd_async"    : false
+                                                                    , "shutdown_jsx"          : ""
+                                                                 }
+                              }
+
+  , "tasks"                 : ["render"]
+}
