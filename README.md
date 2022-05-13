@@ -5,20 +5,20 @@ Templater ships with command line interface (CLI) control only in the Bot editio
 ## Requirements for running the Templater CLI
 
 ### System Requirements
-As of Templater version 2.1.8 users should invoke the Templater CLI via the `templater.ps1` file on Windows and `templater.sh` file on macOS.  Prior to Templater 2.1.8, the launcher script was written as a Microsoft Batch script for Windows, and an AppleScript file for macOS.  These have been deprecated and are no longer supported.  
+As of Templater version 2.1.8 users should invoke the Templater CLI via the `templater.ps1` file on Windows and `templater.sh` file on macOS.  Prior to Templater 2.1.8, the launcher script was written as a Microsoft Batch script for Windows, and an AppleScript file for macOS.  These have been deprecated and are no longer supported.
 
 >#### Windows Environment
 > + Windows PowerShell.  Users should have privileges to run PowerShell scripts from the PowerShell prompt.
 
 >#### macOS Environments
->+ Python—version 2.6 or later.  The most recent versions of macOS *do not* come bundled with Python any longer.  Enter `python --version` at a new terminal prompt to verify installation—if you see a version number, Python is installed and ready.  If you do not have Python installed, [download it](https://www.python.org/downloads/) and install it on your macOS machine.
+>+ Python—version 2.6 or later.  The most recent versions of macOS (12.3 Monterey and newer) *do not* come bundled with Python any longer.  Enter `python --version` at a new terminal prompt to verify installation—if you see a version number, Python is installed and ready.  If you do not have Python installed, [download it](https://www.python.org/downloads/) and install it on your macOS machine.
 
 ### Project Requirements
 To version an After Effects project with Templater's command line interface, you should first have the following required resources within your project's working directory:
 
 *	An Adobe After Effects project file that is already rigged for Templater.  The project file should open within After Effects without displaying any error dialogs related to missing dependencies such as fonts, footage sources, etc.
-*	A [`templater-options.json`](https://github.com/dataclay/cli-tools/blob/master/Windows/templater-options.json) file that specifies Templater's configuration and options in JSON format.
-*	The CLI launcher script—either [`templater.ps1`](https://github.com/dataclay/cli-tools/tree/master/Windows/templater.ps1) for Windows Powershell or [`templater.sh`](https://github.com/dataclay/cli-tools/tree/master/OSX/templater.sh) provided for macOS Terminal.
+*	A `templater-options.json` file that specifies Templater's configuration and options in JSON format.
+*	The CLI launcher script—either [`templater.ps1`](https://github.com/dataclay/cli-tools/blob/master/Windows/templater.ps1) for Windows Powershell or [`templater.sh`](https://github.com/dataclay/cli-tools/blob/master/OSX/templater.sh) provided for macOS Terminal.
 
 >#### NOTE
 >The `templater-options.json` file you use for your project depends on which version of Templater you are running.  Choose the appropriate file according to your operating system and the version of Templater you are running.
@@ -29,7 +29,7 @@ On Windows, for example, a directory listing of a weather forecast project shoul
 C:\Templates\WeatherForecast
 	FiveDay.aep
 	templater-options.json
-  	templater.ps1
+  templater.ps1
 ```
 On macOS, the same weather forecast project directory listing should include the following:
 
@@ -43,7 +43,7 @@ Once you have these files set up and within a single directory, you can use Temp
 
 &nbsp;
 ## Configuring the Templater CLI
-Configure the Templater CLI by editing the JSON-formatted [`templater-options.json`](https://github.com/dataclay/cli-tools/blob/master/Windows/templater-options.json) file.  If you forget to declare a required key or a key has an invalid value, Templater will report an error in your logs.  Some keys will have default values if they are not specified in the file.
+Configure the Templater CLI by editing the appropriate JSON-formatted `templater-options.json` file depending on your OS and Templater version. If you forget to declare a required key or a key has an invalid value, Templater will report an error in your logs.  Some keys will have default values if they are not specified in the file.
 
 Note that on Windows, paths specified within the configuration file must be entered with a double-backslash.
 	
@@ -55,7 +55,7 @@ While paths on macOS must be entered with the forward slash.
 	
 ### CLI Property Keys
 
-The information below defines some important keys for running the CLI.  Refer to [documentation on Dataclay's support website](http://support.dataclay.com/content/how_to/cli/templater_cli_configuration_properties.htm) for detailed documentation on each property key.
+The information below defines some important keys for running the CLI.  Refer to [documentation on Dataclay's support website](http://support.dataclay.com/templater/content/how_to/cli/templater_cli_configuration_properties.htm) for detailed documentation on each property key.
 
 #### **`log_location`**  :  *string*
 >Specifies **a path to a directory** for multiple message and error log files.  Read `templater.out` when you want to inspect the log as Templater executes—for example with a command like `tail -f templater.out`.  Open `templater.log` if you need to examine the log using a standard text editor.
@@ -92,7 +92,7 @@ The information below defines some important keys for running the CLI.  Refer to
 
 Start Templater from the command line by entering the name of the launcher script file followed by some arguments.  If you don't supply the required arguments, the launcher script will output its usage, documentation, and examples.
 
-For example, assuming your file system has a directory named `WeatherForecast` containing the required files as listed in [Requirements for running the Templater CLI](#requirements), and that the environment is running Adobe After Effects CC 2015, you would follow these steps to invoke Templater from the command line:
+For example, assuming your file system has a directory named `WeatherForecast` containing the required files as listed in [Requirements for running the Templater CLI](#requirements), and that the environment is running Adobe After Effects 2022, you would follow these steps to invoke Templater from the command line:
 
 1. On Windows, start a new Powershell terminal.  On macOS, start a new terminal session.
 2. Change into the `WeatherForecast` directory.  On Windows, use `cd C:\Templater\WeatherForecast`.  On macOS, use `cd ~/Templates/WeatherForecast` 
@@ -190,7 +190,7 @@ The following is an example of an error object that is output to `templater.err`
 
 ### Templater error object properties
 ##### **`code`**
->A numerical identifier for the reported error.  You can use the error code in the `quit_on_errors` array as defined in [`templater-options.json`](https://github.com/dataclay/cli-tools/blob/master/Windows/templater-options.json) file to force quit After Effects on the first occurrence of that error code.
+>A numerical identifier for the reported error.  You can use the error code in the `quit_on_errors` array as defined in `templater-options.json` file to force quit After Effects on the first occurrence of that error code.
 > 
 >###### Error Code Descriptions
 >| error code |              description              |
