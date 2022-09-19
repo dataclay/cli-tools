@@ -2,18 +2,18 @@
 
 show_usage() {
 
-echo -e "\n\n   \033[1mTemplater Launcher for OSX from Dataclay\033[0m\n"
+echo -e "\n\n   \033[1mTemplater Launcher for macOS from Dataclay\033[0m\n"
 cat << EOF
 
     Desc:
 
         Launches Templater for Adobe After Effects
         from the command line.  A supported version of
-        After Effects is required to be installed on this 
+        After Effects is required to be installed on this
         machine for this launcher to work properly.  This
         launcher will always use the latest version of the
         Templater runtime file installed in the targeted
-        After Effects version.  Python scripting language 
+        After Effects version.  Python scripting language
         should be installed as well.
 
     Usage:
@@ -26,10 +26,10 @@ cat << EOF
         The version of Adobe After Effects you want to use
         with Templater, where 'version_string' can be any of
         the following:
-        '2022' '2021' '2020' 'CC 2019' 'CC 2018' 'CC 2017' 
+        '2022' '2021' '2020' 'CC 2019' 'CC 2018' 'CC 2017'
         'CC 2015.3' 'CC 2015' 'CC 2014' 'CC' 'CS6' 'CS5.5' 'CS5'
 
-        -ui 
+        -ui
         If specified, Adobe After Effects will launch with its
         graphical user interface.  Required if you want to use
         Templater Bot functionality.
@@ -42,14 +42,14 @@ cat << EOF
     Examples:
 
         Launch without AE user interface
-          
+
           $ templater.sh -v '2022'
           $ templater.sh -v 'CC 2019'
           $ templater.sh -v 'CS5'
-        
-        
+
+
         Launch with AE user interface
-          
+
           $ templater.sh -v '2022' -ui
           $ templater.sh -v 'CC 2019' -ui
           $ templater.sh -v 'CS5' -ui
@@ -57,7 +57,7 @@ cat << EOF
 
         Launch new instance of AE without user interface
 
-          $ templater.sh -v '2022' -m  
+          $ templater.sh -v '2022' -m
           $ templater.sh -v 'CC 2019' -m
 
 
@@ -66,7 +66,7 @@ EOF
 
 # Reset all variables that might be set by supplied arguments
 version=" "
-ui="-noui" 
+ui="-noui"
 new_instance=" "
 
 #Parse arguments from command line
@@ -86,13 +86,13 @@ while :; do
                 printf '                            \"2022\", \"2021\", \"2020\", \"CC 2019\", \"CC 2018\", \"CC 2017\", \"CC 2015.3\", \"CC 2015\", \"CC 2014\" \"CC\", \"CS6\", \"CS5.5\", \"CS5\"\n\n'
                 printf 'Use --help option to see description and usage examples\n\n'
                 exit 1
-            fi 
+            fi
         ;;
         -ui)
             ui=" "
             ;;
         -m)
-        new_instance="-m" 
+        new_instance="-m"
         ;;
     --) # End of all options.
             shift
@@ -133,6 +133,21 @@ ver=${runtimes[0]}
 for n in "${runtimes[@]}" ; do
     ((n > ver)) && ver=$n
 done
+
+PYTHON3_REF=$(which python3 | grep "/python3")
+PYTHON_REF=$(which python | grep "/python")
+
+# Logic
+if [[ ! -z $PYTHON3_REF ]]; then
+    python_cmd='python3'
+elif [[ ! -z $PYTHON_REF ]]; then
+    python_cmd='python'
+else
+    # Python is not installed at all
+    echo "To use Templater's Command Line interface, the Python scripting language must be installed. Please install a version of the Python scripting language and try again."
+    exit
+fi
+
 IFS=' '
 templater_filename="Templater ${ver}.jsxbin"
 
@@ -141,7 +156,7 @@ templater_filename="Templater ${ver}.jsxbin"
 get_conf () {
     read -r -d '' get_cli_conf << EOM
 from __future__ import print_function
-import sys 
+import sys
 import json
 with open("$PWD/templater-options.json") as f:
     read_data = f.read()
@@ -150,7 +165,7 @@ cli_opts = json.loads(read_data)
 print(cli_opts["$1"])
 EOM
 
-echo "$(python -c "$get_cli_conf")"
+echo "$($python_cmd -c "$get_cli_conf")"
 
 }
 
@@ -175,7 +190,7 @@ read -r -d '' header << EOM
 
     * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
     *                                                               *
-    *       Templater CLI Launcher for OSX or macOS Terminal        *
+    *          Templater CLI Launcher for macOS Terminal            *
     *                                                               *
     * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
@@ -236,7 +251,7 @@ echo " "
 echo "  Tail end of log =>"
 if [ -f "$log/templater.log" ]; then
     cat "$log/templater.log" | grep "." | tail -5 | sed 's/^/        /'
-else 
+else
     echo "      [Empty Log]"
 fi
 
