@@ -92,20 +92,20 @@ The information below defines some important keys for running the CLI.  Refer to
 
 Start Templater from the command line by entering the name of the launcher script file followed by some arguments.  If you don't supply the required arguments, the launcher script will output its usage, documentation, and examples.
 
-For example, assuming your file system has a directory named `WeatherForecast` containing the required files as listed in [Requirements for running the Templater CLI](#requirements), and that the environment is running Adobe After Effects 2022, you would follow these steps to invoke Templater from the command line:
+For example, assuming your file system has a directory named `WeatherForecast` containing the required files as listed in [Requirements for running the Templater CLI](#requirements), and that the environment is running Adobe After Effects 2023, you would follow these steps to invoke Templater from the command line:
 
 1. On Windows, start a new Powershell terminal.  On macOS, start a new terminal session.
 2. Change into the `WeatherForecast` directory.  On Windows, use `cd C:\Templater\WeatherForecast`.  On macOS, use `cd ~/Templates/WeatherForecast` 
 3. On Windows, at the Powershell prompt `>`, enter the following:
 
 	>```
-	>PS C:\Templates\WeatherForecast> .\templater.ps1 -v '2022'
+	>PS C:\Templates\WeatherForecast> .\templater.ps1 -v '2023'
 	>```
 	
 	On macOS, at the Terminal prompt `$`, enter the following:
 	
 	>```
-	>iMac:WeatherForecast dataclay$ templater.sh -v '2022' 
+	>iMac:WeatherForecast dataclay$ templater.sh -v '2023' 
 	>```
 
 
@@ -142,7 +142,7 @@ Use `.\templater.ps1 -h` on Windows or `./templater.sh -h` on macOS to see infor
         -v | --version 'ae_version_string'
         The version of AE you want to use with Templater,
         where 'version_string' can be any of the following:
-        '2022' '2021' '2020' 'CC 2019' 'CC 2018' 'CC 2017' 
+        '2023' '2022' '2021' '2020' 'CC 2019' 'CC 2018' 'CC 2017' 
         'CC 2015.3' 'CC 2015' 'CC 2014' 'CC' 'CS6' 'CS5.5' 'CS5'
 
         -ui
@@ -157,19 +157,19 @@ Use `.\templater.ps1 -h` on Windows or `./templater.sh -h` on macOS to see infor
 
         Launch without AE user interface
 
-          > .\templater.ps1 -v '2022'
+          > .\templater.ps1 -v '2023'
           > .\templater.ps1 -v 'CC 2019'
           > .\templater.ps1 -v 'CS5'
         
         Launch with AE user interface
           
-          > .\templater.ps1 -v '2022' -ui
+          > .\templater.ps1 -v '2023' -ui
           > .\templater.ps1 -v 'CC 2019' -ui
           > .\templater.ps1 -v 'CS5' -ui
 
         Launch new instance of AE without its user interface
 
-          > .\templater.ps1 -v '2022' -m
+          > .\templater.ps1 -v '2023' -m
           > .\templater.ps1 -v 'CC 2019' -m
 
 &nbsp;
