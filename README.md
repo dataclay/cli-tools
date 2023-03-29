@@ -5,7 +5,7 @@ Templater ships with command line interface (CLI) control only in the Bot editio
 ## Requirements for running the Templater CLI
 
 ### System Requirements
-As of Templater version 2.1.8 users should invoke the Templater CLI via the `templater.ps1` file on Windows and `templater.sh` file on macOS.  Prior to Templater 2.1.8, the launcher script was written as a Microsoft Batch script for Windows, and an AppleScript file for macOS.  These have been deprecated and are no longer supported.
+As of Templater version 2.1.8 users should invoke the Templater CLI via the [`templater.ps1`](https://github.com/dataclay/cli-tools/blob/master/Windows/templater.ps1) file on Windows and [`templater.sh`](https://github.com/dataclay/cli-tools/blob/master/macOS/templater.sh) file on macOS. Prior to Templater 2.1.8, the launcher script was written as a Microsoft Batch script for Windows, and an AppleScript file for macOS — those are deprecated.
 
 >#### Windows Environment
 > + Windows PowerShell.  Users should have privileges to run PowerShell scripts from the PowerShell prompt.
@@ -18,7 +18,7 @@ To version an After Effects project with Templater's command line interface, you
 
 *	An Adobe After Effects project file that is already rigged for Templater.  The project file should open within After Effects without displaying any error dialogs related to missing dependencies such as fonts, footage sources, etc.
 *	A `templater-options.json` file that specifies Templater's configuration and options in JSON format.
-*	The CLI launcher script—either [`templater.ps1`](https://github.com/dataclay/cli-tools/blob/master/Windows/templater.ps1) for Windows Powershell or [`templater.sh`](https://github.com/dataclay/cli-tools/blob/master/OSX/templater.sh) provided for macOS Terminal.
+*	The CLI launcher script—either [`templater.ps1`](https://github.com/dataclay/cli-tools/blob/master/Windows/templater.ps1) for Windows Powershell or [`templater.sh`](https://github.com/dataclay/cli-tools/blob/master/macOS/templater.sh) provided for macOS Terminal.
 
 >#### NOTE
 >The `templater-options.json` file you use for your project depends on which version of Templater you are running.  Choose the appropriate file according to your operating system and the version of Templater you are running.
@@ -105,7 +105,7 @@ For example, assuming your file system has a directory named `WeatherForecast` c
 	On macOS, at the Terminal prompt `$`, enter the following:
 	
 	>```
-	>iMac:WeatherForecast dataclay$ templater.sh -v '2023' 
+	>iMac:WeatherForecast dataclay$ ./templater.sh -v '2023' 
 	>```
 
 
