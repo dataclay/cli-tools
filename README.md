@@ -43,7 +43,19 @@ Once you have these files set up and within a single directory, you can use Temp
 
 &nbsp;
 ## Configuring the Templater CLI
-Configure the Templater CLI by editing the appropriate JSON-formatted `templater-options.json` file depending on your OS and Templater version. If you forget to declare a required key or a key has an invalid value, Templater will report an error in your logs.  Some keys will have default values if they are not specified in the file.
+Configure the Templater CLI by editing the appropriate JSON-formatted `templater-options.json` file depending on your OS and Templater version:
+
+>Templater 2
+>+ [`templater-options.json`for macOS](https://github.com/dataclay/cli-tools/blob/master/macOS/Templater%202/templater-options.json)
+>+ [`templater-options.json` for Windows](https://github.com/dataclay/cli-tools/blob/master/Windows/Templater%202/templater-options.json)
+
+>Templater 3 (current)
+>+ [`templater-options.json` for macOS](https://github.com/dataclay/cli-tools/blob/master/macOS/Templater%203/templater-options.json)
+>+ [`templater-options.json` for Windows](https://github.com/dataclay/cli-tools/blob/master/Windows/Templater%203/templater-options.json)
+
+
+
+If a required key is missing from the options file or a key's value is invalid, Templater will report an error in your logs.  Some keys will have default values if they are not specified in the file.
 
 Note that on Windows, paths specified within the configuration file must be entered with a double-backslash.
 	
