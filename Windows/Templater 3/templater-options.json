@@ -88,6 +88,14 @@
                                                                     , "pre_cmd_job_async"     : false
                                                                     , "pre_jsx_job"           : ""
 
+                                                                    , "pre_cmd_ftg"            : ""
+                                                                    , "pre_cmd_ftg_async"      : false
+                                                                    , "pre_jsx_ftg"            : ""
+  
+                                                                    , "pre_cmd_dl"            : ""
+                                                                    , "pre_cmd_dl_async"      : false
+                                                                    , "pre_jsx_dl"            : ""
+
                                                                     , "pre_cmd_update"        : ""
                                                                     , "pre_cmd_update_async"  : false
                                                                     , "pre_jsx_update"        : ""
@@ -111,6 +119,14 @@
                                                                     , "post_cmd_job"          : ""
                                                                     , "post_cmd_job_async"    : false
                                                                     , "post_jsx_job"          : ""
+
+                                                                    , "post_cmd_ftg"            : ""
+                                                                    , "post_cmd_ftg_async"      : false
+                                                                    , "post_jsx_ftg"            : ""
+  
+                                                                    , "post_cmd_dl"            : ""
+                                                                    , "post_cmd_dl_async"      : false
+                                                                    , "post_jsx_dl"            : ""
 
                                                                     , "post_cmd_update"       : ""
                                                                     , "post_cmd_update_async" : false
