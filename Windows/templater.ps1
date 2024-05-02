@@ -119,7 +119,7 @@ $app_dir="C:\Program Files\Adobe\Adobe After Effects $v\Support Files"
 $panels="$app_dir\Scripts\ScriptUI Panels"
 
 #Retrieve the latest Templater runtime from targeted AE version
-$panel_paths = (Get-ChildItem -Path "$panels\Templater*").FullName
+$panel_paths = (Get-ChildItem -Path "$panels\Templater*" -File).FullName
 $panel_versions = @()
 foreach ($panel_file in $panel_paths) {
     $path_arr = $panel_file.split('\')
