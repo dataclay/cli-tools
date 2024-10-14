@@ -119,11 +119,14 @@ $app_dir="C:\Program Files\Adobe\Adobe After Effects $v\Support Files"
 $panels="$app_dir\Scripts\ScriptUI Panels"
 
 #Retrieve the latest Templater runtime from targeted AE version
+$pattern = "Templater (\d+)\.jsxbin"
 $panel_paths = (Get-ChildItem -Path "$panels\Templater*" -File).FullName
 $panel_versions = @()
 foreach ($panel_file in $panel_paths) {
-    $path_arr = $panel_file.split('\')
-    $panel_versions += ($path_arr[$path_arr.count -1].Substring(10,1))
+    if ($panel_file -match $pattern) {
+        $version = $Matches[1]
+        $panel_versions += $version
+    }
 }
 $latest_panel_version = ($panel_versions | Measure-Object -Max).Maximum;
 
