@@ -8,12 +8,12 @@ cat << EOF
     Desc:
 
         Launches Templater for Adobe After Effects
-        from the command line.  A supported version of
+        from the command line. A supported version of
         After Effects is required to be installed on this
-        machine for this launcher to work properly.  This
+        machine for this launcher to work properly. This
         launcher will always use the latest version of the
         Templater runtime file installed in the targeted
-        After Effects version.  Python scripting language
+        After Effects version. Python scripting language
         should be installed as well.
 
     Usage:
@@ -26,39 +26,39 @@ cat << EOF
         The version of Adobe After Effects you want to use
         with Templater, where 'version_string' can be any of
         the following:
-        '2024' '2023' '2022' '2021' '2020' 'CC 2019' 'CC 2018' 
-        'CC 2017''CC 2015.3' 'CC 2015' 'CC 2014' 'CC' 'CS6' 
-        'CS5.5' 'CS5'
+        '2025' '2024' '2023' '2022' '2021' '2020' 'CC 2019' 
+        'CC 2018' 'CC 2017''CC 2015.3' 'CC 2015' 'CC 2014' 
+        'CC' 'CS6' 'CS5.5' 'CS5'
 
         -ui
         If specified, Adobe After Effects will launch with its
-        graphical user interface.  Required if you want to use
+        graphical user interface. Required if you want to use
         Templater Bot functionality.
 
         -m
         If included, this causes After Effects to launch as a new,
-        seperate, process.  This is useful if you want to simultaneously
+        seperate, process. This is useful if you want to simultaneously
         execute two or more versioning jobs with Templater.
 
     Examples:
 
         Launch without AE user interface
 
-          $ templater.sh -v '2024'
+          $ templater.sh -v '2025'
           $ templater.sh -v 'CC 2019'
           $ templater.sh -v 'CS5'
 
 
         Launch with AE user interface
 
-          $ templater.sh -v '2024' -ui
+          $ templater.sh -v '2025' -ui
           $ templater.sh -v 'CC 2019' -ui
           $ templater.sh -v 'CS5' -ui
 
 
         Launch new instance of AE without user interface
 
-          $ templater.sh -v '2024' -m
+          $ templater.sh -v '2025' -m
           $ templater.sh -v 'CC 2019' -m
 
 
@@ -84,7 +84,7 @@ while :; do
             else
                 printf '\nTemplater CLI Launch Error: --version or -v option requires a non-empty argument.\n'
                 printf '                            Use any one of the following arguments for the -v option\n'
-                printf '                            \"2024\", \"2023\", \"2022\", \"2021\", \"2020\", \"CC 2019\", \"CC 2018\", \"CC 2017\", \"CC 2015.3\", \"CC 2015\", \"CC 2014\" \"CC\", \"CS6\", \"CS5.5\", \"CS5\"\n\n'
+                printf '                            \"2025\", \"2024\", \"2023\", \"2022\", \"2021\", \"2020\", \"CC 2019\", \"CC 2018\", \"CC 2017\", \"CC 2015.3\", \"CC 2015\", \"CC 2014\" \"CC\", \"CS6\", \"CS5.5\", \"CS5\"\n\n'
                 printf 'Use --help option to see description and usage examples\n\n'
                 exit 1
             fi
