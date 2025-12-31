@@ -30,9 +30,9 @@ $usage = @'
         -v | --version 'ae_version_string'
         The version of AE you want to use with Templater, 
         where 'version_string' can be any of the following: 
-        '2025' '2024' '2023' '2022' '2021' '2020' 'CC 2019' 
-        'CC 2018' 'CC 2017' 'CC 2015.3' 'CC 2015' 'CC 2014' 
-        'CC' 'CS6' 'CS5.5' 'CS5'
+        '(Beta)' '2025' '2024' '2023' '2022' '2021' '2020' 
+        'CC 2019' 'CC 2018' 'CC 2017' 'CC 2015.3' 'CC 2015'
+        'CC 2014' 'CC' 'CS6' 'CS5.5' 'CS5'
 
         -ui 
         If specified, Adobe After Effects will launch with its
@@ -73,7 +73,7 @@ if ([string]::IsNullorWhitespace($v) -or $h -eq $true) {
 exit
 }
 
-if ($v -ne "2025" -and $v -ne "2024" -and $v -ne "2023" -and $v -ne "2022" -and $v -ne "2021" -and $v -ne "2020" -and $v -ne "CC 2019" -and $v -ne "CC 2018" -and $v -ne "CC 2017" -and $v -ne "CC 2015.3" -and $v -ne "CC 2015" -and $v -ne "CC 2014" -and $v -ne "CC" -and $v -ne "CS6" -and $v -ne "CS5.5" -and $v -ne "CS5") {
+if ($v -ne "(Beta)" -and $v -ne "2025" -and $v -ne "2024" -and $v -ne "2023" -and $v -ne "2022" -and $v -ne "2021" -and $v -ne "2020" -and $v -ne "CC 2019" -and $v -ne "CC 2018" -and $v -ne "CC 2017" -and $v -ne "CC 2015.3" -and $v -ne "CC 2015" -and $v -ne "CC 2014" -and $v -ne "CC" -and $v -ne "CS6" -and $v -ne "CS5.5" -and $v -ne "CS5") {
 "
 `t`tTemplater CLI Error: Please specify a valid string for the version of After Effects you want to launch. Use -h for more information.
 "
@@ -156,10 +156,14 @@ $templater_panel="$panels\$templater_filename"
 `t`t`tTask Range      : $row_start through $row_end
 
 `t`tInitializing Project Directory =>
-`t`t`tCopying `"$app_dir\$templater_filename`" to `"$PSScriptRoot\$templater_filename`""
+`t`t`tCopying `"$templater_panel`" to `"$PSScriptRoot\$templater_filename`""
 Copy-Item -Force $templater_panel "$PSScriptRoot\$templater_filename"
 
-$cmd = "$app_dir\afterfx.exe"
+if ($v -eq "(Beta)") {
+    $cmd = "$app_dir\afterfx (Beta).exe"
+} else {
+    $cmd = "$app_dir\afterfx.exe"
+}
 $cmd_args = "$ui_switch $m_switch -r  $PSScriptRoot\$templater_filename"
 
 "
