@@ -1,3 +1,6 @@
+::This batch file is no longer supported by Dataclay.
+::Please use the `templater.ps1` script in a PowerShell terminal.
+
 @echo off
 setlocal enabledelayedexpansion
 
