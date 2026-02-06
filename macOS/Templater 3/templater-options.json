@@ -28,6 +28,7 @@
                                   , "unique_downloads"         : false
                                   , "empty_is_faulty"          : true
                                   , "suppress_ae_dialogs"      : true
+                                  , "halt_on_missing_projects" : true
                                   , "use_engine_layout"        : true
                                   , "use_engine_time"          : true
                                   , "silence_logging"          : false
