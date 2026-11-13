@@ -30,9 +30,10 @@ $usage = @'
         -v | --version 'ae_version_string'
         The version of AE you want to use with Templater, 
         where 'version_string' can be any of the following: 
-        '(Beta)' '2026' '2025' '2024' '2023' '2022' '2021'
-        '2020' 'CC 2019' 'CC 2018' 'CC 2017' 'CC 2015.3'
-        'CC 2015' 'CC 2014' 'CC' 'CS6' 'CS5.5' 'CS5'
+        '(Beta)' '2027' '2026' '2025' '2024' '2023' '2022'
+        '2021' '2020' 'CC 2019' 'CC 2018' 'CC 2017'
+        'CC 2015.3' 'CC 2015' 'CC 2014' 'CC' 'CS6'
+        'CS5.5' 'CS5'
 
         -ui 
         If specified, Adobe After Effects will launch with its
@@ -48,21 +49,21 @@ $usage = @'
 
         Launch without AE user interface
           
-          > .\templater.ps1 -v '2026'
+          > .\templater.ps1 -v '2027'
           > .\templater.ps1 -v 'CC 2019'
           > .\templater.ps1 -v 'CS5'
         
         
         Launch with AE user interface
           
-          > .\templater.ps1 -v '2026' -ui
+          > .\templater.ps1 -v '2027' -ui
           > .\templater.ps1 -v 'CC 2019' -ui
           > .\templater.ps1 -v 'CS5' -ui
 
 
         Launch new instance of AE without its user interface
 
-          > .\templater.ps1 -v '2026' -m
+          > .\templater.ps1 -v '2027' -m
           > .\templater.ps1 -v 'CC 2019' -m
 
 '@
@@ -73,7 +74,14 @@ if ([string]::IsNullorWhitespace($v) -or $h -eq $true) {
 exit
 }
 
-if ($v -ne "(Beta)" -and $v -ne "2026" -and $v -ne "2025" -and $v -ne "2024" -and $v -ne "2023" -and $v -ne "2022" -and $v -ne "2021" -and $v -ne "2020" -and $v -ne "CC 2019" -and $v -ne "CC 2018" -and $v -ne "CC 2017" -and $v -ne "CC 2015.3" -and $v -ne "CC 2015" -and $v -ne "CC 2014" -and $v -ne "CC" -and $v -ne "CS6" -and $v -ne "CS5.5" -and $v -ne "CS5") {
+# Supported After Effects versions. Add new releases to the front of this list.
+$valid_versions = @(
+    '(Beta)', '2027', '2026', '2025', '2024', '2023', '2022', '2021', '2020',
+    'CC 2019', 'CC 2018', 'CC 2017', 'CC 2015.3', 'CC 2015', 'CC 2014', 'CC',
+    'CS6', 'CS5.5', 'CS5'
+)
+
+if ($v -notin $valid_versions) {
 "
 `t`tTemplater CLI Error: Please specify a valid string for the version of After Effects you want to launch. Use -h for more information.
 "

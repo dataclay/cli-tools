@@ -104,20 +104,20 @@ The information below defines some important keys for running the CLI.  Refer to
 
 Start Templater from the command line by entering the name of the launcher script file followed by some arguments.  If you don't supply the required arguments, the launcher script will output its usage, documentation, and examples.
 
-For example, assuming your file system has a directory named `WeatherForecast` containing the required files as listed in [Requirements for running the Templater CLI](#requirements), and that the environment is running Adobe After Effects 2024, you would follow these steps to invoke Templater from the command line:
+For example, assuming your file system has a directory named `WeatherForecast` containing the required files as listed in [Requirements for running the Templater CLI](#requirements), and that the environment is running Adobe After Effects 2027, you would follow these steps to invoke Templater from the command line:
 
 1. On Windows, start a new Powershell terminal.  On macOS, start a new terminal session.
 2. Change into the `WeatherForecast` directory.  On Windows, use `cd C:\Templater\WeatherForecast`.  On macOS, use `cd ~/Templates/WeatherForecast` 
 3. On Windows, at the Powershell prompt `>`, enter the following:
 
 	>```
-	>PS C:\Templates\WeatherForecast> .\templater.ps1 -v '2024'
+	>PS C:\Templates\WeatherForecast> .\templater.ps1 -v '2027'
 	>```
 	
 	On macOS, at the Terminal prompt `$`, enter the following:
 	
 	>```
-	>iMac:WeatherForecast dataclay$ ./templater.sh -v '2024' 
+	>iMac:WeatherForecast dataclay$ ./templater.sh -v '2027'
 	>```
 
 
@@ -133,18 +133,19 @@ For example, assuming your file system has a directory named `WeatherForecast` c
 ### Templater Launcher Tool Help
 Use `.\templater.ps1 -h` on Windows or `./templater.sh -h` on macOS to see information about options and arguments.  The following shows the help as it appears in Windows PowerShell.
 
-    Templater Launcher from Dataclay
-
     Desc:
 
         Launches Templater for Adobe After Effects
-        from the command line.  A supported version of
-        After Effects is required to be installed on this
-        machine for this launcher to work properly.
+        from the command line.  The launcher always
+        uses the latest Templater runtime installed to
+        the targeted version of After Effects. A supported
+        version of After Effects is required to be
+        installed on this machine for this launcher
+        to work properly.
 
-     Usage:
+    Usage:
 
-        .\templater.ps1 [-h] -v 'ae_version_string' [-ui] [-m]
+        .\templater.ps1 -v 'ae_version_string' [-ui] [-m]
 
     Options:
 
@@ -154,12 +155,15 @@ Use `.\templater.ps1 -h` on Windows or `./templater.sh -h` on macOS to see infor
         -v | --version 'ae_version_string'
         The version of AE you want to use with Templater,
         where 'version_string' can be any of the following:
-        '2024' '2023' '2022' '2021' '2020' 'CC 2019' 'CC 2018' 
-        'CC 2017' 'CC 2015.3' 'CC 2015' 'CC 2014' 'CC' 'CS6' 
+        '(Beta)' '2027' '2026' '2025' '2024' '2023' '2022'
+        '2021' '2020' 'CC 2019' 'CC 2018' 'CC 2017'
+        'CC 2015.3' 'CC 2015' 'CC 2014' 'CC' 'CS6'
         'CS5.5' 'CS5'
 
         -ui
-        When used, Adobe After Effects launches with a user interface
+        If specified, Adobe After Effects will launch with its
+        graphical user interface.  Required if you want to use
+        Templater Bot functionality.
 
         -m
         If included, this causes AE to launch as a new, seperate,
@@ -170,19 +174,19 @@ Use `.\templater.ps1 -h` on Windows or `./templater.sh -h` on macOS to see infor
 
         Launch without AE user interface
 
-          > .\templater.ps1 -v '2024'
+          > .\templater.ps1 -v '2027'
           > .\templater.ps1 -v 'CC 2019'
           > .\templater.ps1 -v 'CS5'
-        
+
         Launch with AE user interface
-          
-          > .\templater.ps1 -v '2024' -ui
+
+          > .\templater.ps1 -v '2027' -ui
           > .\templater.ps1 -v 'CC 2019' -ui
           > .\templater.ps1 -v 'CS5' -ui
 
         Launch new instance of AE without its user interface
 
-          > .\templater.ps1 -v '2024' -m
+          > .\templater.ps1 -v '2027' -m
           > .\templater.ps1 -v 'CC 2019' -m
 
 &nbsp;
@@ -207,20 +211,20 @@ The following is an example of an error object that is output to `templater.err`
 > 
 >###### Error Code Descriptions
 >| error code |              description              |
->|----------:|:-------------------------------------|
+>|-----------:|:-------------------------------------|
 >| 1          | Error starting Templater application |
 >| 2          | Error initializing Templater CLI |
->| 3	    | Error reading external file |
->| 1001    | Error swapping footage source                                       |
->| 1002    | Error downloading remote footage source                                       |
->| 1003    | Could not find the footage file in network |
->| 2001    | Command line execution error                                      |
->| 2002       | CLI configuration file error                                       |
->| 3001       | Error conforming row data                                       |
->| 4001       | Google Open Authentication (OAuth) error                                       |
->| 4002       | Google Drive retrieval error                                       |
->| 5001       | Templater layout engine error                                       |
->| 6001       | HTTP request error                                        |
+>| 3          | Error reading external file |
+>| 1001       | Error swapping footage source |
+>| 1002       | Error downloading remote footage source |
+>| 1003       | Could not find the footage file in network |
+>| 2001       | Command line execution error |
+>| 2002       | CLI configuration file error |
+>| 3001       | Error conforming row data |
+>| 4001       | Google Open Authentication (OAuth) error |
+>| 4002       | Google Drive retrieval error |
+>| 5001       | Templater layout engine error |
+>| 6001       | HTTP request error |
 >
 >**NOTE**
 >This list does not contain all possible errors that you may encounter while using Templater.
